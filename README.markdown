@@ -28,13 +28,13 @@ Glimpse.RavenDb.Profiler.HideFields("PasswordHash", "PasswordSalt");
 
 ###Web.Config
 
-`<appSettings>
+`<appSettings>'
 
 	<add key="Glimpse.RavenDb.DocumentStoreApplicationKey" value="MyDocStore" />	<!-- The key into the Application dictionary that holds your instance -->
 	
 	<add key="Glimpse.RavenDb.HiddenFields" value="PasswordHash,PasswordSalt" />	<!-- Comma separated -->
 	
-</appSettings>`
+'</appSettings>`
 
 ###Learn More
 
