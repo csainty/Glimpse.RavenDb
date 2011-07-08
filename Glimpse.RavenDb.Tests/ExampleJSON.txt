@@ -1,0 +1,986 @@
+﻿{
+  "Results": [
+    {
+      "Title": "Macto: The boundaries of a prison",
+      "LegacySlug": null,
+      "Body": "<p>Macto is a prison management system. To be rather more exact, it is an <em>incarceration </em>management system. Managing a prison is a very complex process (did you ever think about who takes the trash out? Or how to handle things like watch rotations?).</p> <p>I am getting ahead of myself, however. The first thing that we have to do when we start designing a system is check:</p> <ul> <li>What is the scope of the system?</li> <li>What is the intended usage?</li> <li>Who are the users?</li> <li>What other systems are we going to interface with?</li></ul> <p>Those are the basics, because in a lot of projects, they don’t get asked.</p> <p>Running a prison is a complex task, I already said. If we wanted a single piece of software to do it all, we would have to do a <em>lot</em> of stuff that we don’t really need. For example, are we going to write our own payroll system for the prison’s stuff? Our own medical software to manage the infirmary? What about managing the inventories in the prison (how many prison uniforms and tear gas canisters we have)? What about the maintenance software for the fleet of vehicles required to run even a small prison?  Or how about… but I think that you get my drift.</p> <p>There are a lot of aspects where it would be significantly better to get an of the shelve solution rather than try to write our own version of that. We need to be focused where we would provide actual utility to our customer.</p> <p>That is what I said that we are going to build incarceration system, not a prison management system. Macto is all about managing the aspects of a prison that are different than those of any other business.</p> <p>You can read about Macto in my initial post about it, <a href=\"http://ayende.com/blog/4087/macto-or-how-to-build-a-prison\">here</a>, since it put the context of the system in a nice perspective.</p> <p>I am not sure if there will be code available, but I am going to outline my thinking here, and I think that this would be valuable in itself.</p> <p>Macto is going to be about managing the aspects of a prison that you can’t get off the shelve. In order to do that in a way that would make sense to you, I need to first explain what we are going to be <em>doing</em>.</p> <p>Like any good architect, I’ll be doing that by starting with the model, which is also the cue for the next post.</p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Macto"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-07-01T20:37:37.0000000+03:00",
+      "PublishAt": "2011-07-05T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": "users/1",
+      "LastEditedAt": "2011-07-01T21:27:58.7487713+03:00",
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 3,
+      "CommentsId": "postcomments/40961",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "macto"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Tue, 05 Jul 2011 11:18:08 GMT",
+        "@id": "posts/40961",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-2500-0000-0000000084ad",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "All the Rhinos in the World, Unite!",
+      "LegacySlug": null,
+      "Body": "<p><b>Update:</b> You can see all the photos <a href=\"http://www.facebook.com/media/set/?set=a.251823744834311.83012.100000200629633&l=6fe85a6b37\r\n\">here</a></p>\r\n<p>Well, I might have gone a <em>bit</em> overboard, but I do like Rhinos.</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/All-the-Rhinos-in-the-World-Unite_B08D/RhinosUnited_2.jpg\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"RhinosUnited\" border=\"0\" alt=\"RhinosUnited\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/All-the-Rhinos-in-the-World-Unite_B08D/RhinosUnited_thumb.jpg\" width=\"640\" height=\"405\"></a></p> <p>Say hello to my crash of rhinos.</p> <p>And here is a nice family of them:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/All-the-Rhinos-in-the-World-Unite_B08D/RhinosFamily_2.jpg\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"RhinosFamily\" border=\"0\" alt=\"RhinosFamily\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/All-the-Rhinos-in-the-World-Unite_B08D/RhinosFamily_thumb.jpg\" width=\"640\" height=\"346\"></a></p> <p>I don’t get this way very often, but <strong><em>AWESOME</em></strong>!</p> <p>Entering to the office…</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/All-the-Rhinos-in-the-World-Unite_B08D/WP_000312_5.jpg\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"WP_000312\" border=\"0\" alt=\"WP_000312\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/All-the-Rhinos-in-the-World-Unite_B08D/WP_000312_thumb_1.jpg\" width=\"640\" height=\"480\"></a></p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/All-the-Rhinos-in-the-World-Unite_B08D/WP_000316_2.jpg\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"WP_000316\" border=\"0\" alt=\"WP_000316\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/All-the-Rhinos-in-the-World-Unite_B08D/WP_000316_thumb.jpg\" width=\"360\" height=\"480\"></a></p> <p>And just to give you some perspective:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/All-the-Rhinos-in-the-World-Unite_B08D/WP_000310_2.jpg\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"WP_000310\" border=\"0\" alt=\"WP_000310\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/All-the-Rhinos-in-the-World-Unite_B08D/WP_000310_thumb.jpg\" width=\"360\" height=\"480\"></a></p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Miscellaneous"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-07-04T13:14:25.0000000+03:00",
+      "PublishAt": "2011-07-04T13:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": "users/1",
+      "LastEditedAt": "2011-07-04T13:26:18.6254680+03:00",
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 15,
+      "CommentsId": "postcomments/58369",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "miscellaneous"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Tue, 05 Jul 2011 09:10:13 GMT",
+        "@id": "posts/58369",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-2500-0000-00000000847f",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Review: Microsoft N Layer App Sample, Part IV-IoC FTW",
+      "LegacySlug": null,
+      "Body": "<p>Continuing my review of <a href=\"http://microsoftnlayerapp.codeplex.com/\">http://microsoftnlayerapp.codeplex.com/</a>, an Official Guidance (shows up at: <a href=\"http://msdn.microsoft.com/es-es/architecture/en\">http://msdn.microsoft.com/es-es/architecture/en</a>) which people are expected to read and follow.</p> <p>While investigating how they are implementing IoC, I found:</p> <blockquote><pre class=\"csharpcode\"><span class=\"rem\">/// <summary></span>\r\n<span class=\"rem\">/// Configure root container.Register types and life time managers for unity builder process</span>\r\n<span class=\"rem\">/// </summary></span>\r\n<span class=\"rem\">/// <param name=\"container\">Container to configure</param></span>\r\n<span class=\"kwrd\">void</span> ConfigureRootContainer(IUnityContainer container)\r\n{\r\n    <span class=\"rem\">// Take into account that Types and Mappings registration could be also done using the UNITY XML configuration</span>\r\n    <span class=\"rem\">//But we prefer doing it here (C# code) because we'll catch errors at compiling time instead execution time, </span>\r\n    <span class=\"rem\">//if any type has been written wrong.</span>\r\n\r\n    <span class=\"rem\">//Register Repositories mappings</span>\r\n    container.RegisterType<IProductRepository, ProductRepository>(<span class=\"kwrd\">new</span> TransientLifetimeManager());\r\n    container.RegisterType<IOrderRepository, OrderRepository>(<span class=\"kwrd\">new</span> TransientLifetimeManager());\r\n    container.RegisterType<IBankAccountRepository, BankAccountRepository>(<span class=\"kwrd\">new</span> TransientLifetimeManager());\r\n    container.RegisterType<ICustomerRepository, CustomerRepository>(<span class=\"kwrd\">new</span> TransientLifetimeManager());\r\n    container.RegisterType<ICountryRepository, CountryRepository>(<span class=\"kwrd\">new</span> TransientLifetimeManager());\r\n\r\n    <span class=\"rem\">//Register application services mappings</span>\r\n\r\n    container.RegisterType<ISalesManagementService, SalesManagementService>(<span class=\"kwrd\">new</span> TransientLifetimeManager());\r\n    container.RegisterType<ICustomerManagementService, CustomerManagementService>(<span class=\"kwrd\">new</span> TransientLifetimeManager());\r\n    container.RegisterType<IBankingManagementService, BankingManagementService>(<span class=\"kwrd\">new</span> TransientLifetimeManager());\r\n    \r\n    <span class=\"rem\">//Register domain services mappings</span>\r\n    container.RegisterType<IBankTransferDomainService, BankTransferDomainService>(<span class=\"kwrd\">new</span> TransientLifetimeManager());\r\n    \r\n\r\n    <span class=\"rem\">//Register crosscuting mappings</span>\r\n    container.RegisterType<ITraceManager, TraceManager>(<span class=\"kwrd\">new</span> TransientLifetimeManager());\r\n\r\n}</pre>\r\n<style type=\"text/css\">.csharpcode, .csharpcode pre\r\n{\r\n\tfont-size: small;\r\n\tcolor: black;\r\n\tfont-family: consolas, \"Courier New\", courier, monospace;\r\n\tbackground-color: #ffffff;\r\n\t/*white-space: pre;*/\r\n}\r\n.csharpcode pre { margin: 0em; }\r\n.csharpcode .rem { color: #008000; }\r\n.csharpcode .kwrd { color: #0000ff; }\r\n.csharpcode .str { color: #006080; }\r\n.csharpcode .op { color: #0000c0; }\r\n.csharpcode .preproc { color: #cc6633; }\r\n.csharpcode .asp { background-color: #ffff00; }\r\n.csharpcode .html { color: #800000; }\r\n.csharpcode .attr { color: #ff0000; }\r\n.csharpcode .alt \r\n{\r\n\tbackground-color: #f4f4f4;\r\n\twidth: 100%;\r\n\tmargin: 0em;\r\n}\r\n.csharpcode .lnum { color: #606060; }\r\n</style>\r\n</blockquote>\r\n<p>Just to figure out how ridiculous this is, let me show you the entire infrastructure required to support IoC in this application:</p>\r\n<p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/Review-Microsoft-N-Layer-App-Sample-Part_8835/image_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/Review-Microsoft-N-Layer-App-Sample-Part_8835/image_thumb.png\" width=\"547\" height=\"361\"></a></p>\r\n<p>Yes, they abstracted the <em>Inversion of Control Container</em>. I think that if you need to do that, it is pretty clear that you don’t really get what IoC is all about.</p>\r\n<p><i>Maybe</i>, if you are a framework, you need to abstract the container, but you don't need to do that if you are an application (which this is supposed to be) and you certainly don't write your own, that is why CommonServiceLocator is here.</p>\r\n<p>Then again, the code is absolutely littered with things like:</p>\r\n<p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/Review-Microsoft-N-Layer-App-Sample-Part_8835/image_4.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/Review-Microsoft-N-Layer-App-Sample-Part_8835/image_thumb_1.png\" width=\"917\" height=\"708\"></a></p>\r\n<p>So I guess that it is not really a surprise.</p>\r\n<p>What <em>is</em> a surprise is that they are catching NullReferenceException. <em>You are not supposed to catch this exception</em>. This is an indication that you have some problem with <em>your</em> code, not that you have some invalid argument issue.</p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Reviews"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-23T10:01:02.0000000+03:00",
+      "PublishAt": "2011-07-04T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": "users/1",
+      "LastEditedAt": "2011-07-04T12:44:13.8431929+03:00",
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 51,
+
+      "CommentsId": "postcomments/29697",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "reviews"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Tue, 05 Jul 2011 10:13:23 GMT",
+        "@id": "posts/29697",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-2500-0000-00000000849b",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Making Macto into an OSS project? Volunteers needed",
+      "LegacySlug": null,
+      "Body": "<p>I don’t have the time to actually sit down and build Macto, but I got a couple of people asking about another option. Making Macto into an OSS project that will build this application under my guidance and assistance. </p> <p>What do I have planned?</p> <p>Assuming I manage to get a few people (and I’ll probably limit it to a small number), I’ll open a private mailing list and github repository and we will start working on that. I’ll provide guidance and direction for the project, as well as reviewing everything.</p> <p>This is going to be a private project for about a month, after which we will hopefully have something at hand that we can talk about and show around.</p> <p>Any volunteers?</p>\r\n\r\n<p><b>Update:</b> Comments are closed, we have enough volunteers</p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Macto"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-07-03T04:37:29.0000000+03:00",
+      "PublishAt": "2011-07-03T01:34:00.0000000+03:00",
+      "SkipAutoReschedule": true,
+      "LastEditedByUserId": "users/1",
+      "LastEditedAt": "2011-07-03T13:12:54.9591651+03:00",
+      "IsDeleted": false,
+      "AllowComments": false,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 19,
+      "CommentsId": "postcomments/52225",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "macto"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Sun, 03 Jul 2011 10:12:54 GMT",
+        "@id": "posts/52225",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-2500-0000-000000000681",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Ayende’s DDD Application: Macto",
+      "LegacySlug": null,
+      "Body": "<p>A long while ago I planned on doing a series of webcasts, demonstrating how to build a real Enterprise System using my approach. I called it <a href=\"http://ayende.com/blog/4087/macto-or-how-to-build-a-prison\">Macto</a>, but I never got around to it.</p> <p>The recent discussion around the Microsoft N Layer sample has caused me to rethink this decision. I think that it would be a good idea to do so. I don’t know if I’ll complete it, and I don’t know if I’ll do code, but I intend to lay out a full architectural approach. I already started writing the series of posts, and it should air out starting around the<strike> 18th of July. </strike></p> <p><strong>Update: </strong>Okay, I moved some posts around, it is now starting next week, but there is a lot of additional content, so it is going to be posted over the next month or two.</p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Architecture",
+          "Macto"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-07-01T20:12:58.0000000+03:00",
+      "PublishAt": "2011-07-01T20:15:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": "users/1",
+      "LastEditedAt": "2011-07-02T04:27:40.0375154+03:00",
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 25,
+      "CommentsId": "postcomments/39937",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "architecture",
+          "macto"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Mon, 04 Jul 2011 04:32:26 GMT",
+        "@id": "posts/39937",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-2500-0000-000000002583",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Review: Microsoft N Layer App Sample, Part III–Abstraction is as abstraction does",
+      "LegacySlug": null,
+      "Body": "<p>Continuing my review of <a href=\"http://microsoftnlayerapp.codeplex.com/\">http://microsoftnlayerapp.codeplex.com/</a>, an Official Guidance (shows up at: <a href=\"http://msdn.microsoft.com/es-es/architecture/en\">http://msdn.microsoft.com/es-es/architecture/en</a>) which people are expected to read and follow.</p> <p>This quite annoys me:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/59ed2d479dc7_85A9/image_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/59ed2d479dc7_85A9/image_thumb.png\" width=\"890\" height=\"502\"></a></p> <p>Why is it annoying? </p> <p>Because of the author note, it implies that you can switch the implementation to something else. Except that you really can’t.</p> <p>Take a look at the actual interface, what does it <em>means</em> TraceStop, TraceStart, TraceStartLogicalOperation, TraceStopLogicalOperation? Well, they are all about expose functionality that exists <em>only for the System.Diagnostics</em> stuff. </p> <p>Too add to the gravity of the situation, there is no where in the code that is even using those methods!</p> <p><strike>And there there is the actual usage of the trace manager:</strike></p> <p>No, before that, even, there is the actual name. ITrace<em>Manager</em>? Because ILogger or something like that wasn’t important enough? What, pray, does implementer of this interface are going to manage? There is no managing, so there shouldn’t be a manager.</p> <p>And there there is the actual usage of the trace manager:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/59ed2d479dc7_85A9/image_4.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/59ed2d479dc7_85A9/image_thumb_1.png\" width=\"695\" height=\"41\"></a></p>  <p>Well, let us imagine that we wanted to read the logs of this application. We can’t, because the application, while having a log, <em>is actively hiding important information</em>. Namely, the full exception (including all the inner exceptions and stack trace).</p> <p>But we will ignore that as well, and say that we want to move to log4net. Guess what, you can’t! Well, you can if you want to get a flat log, but one of the most important features of the log4net is the idea of loggers, that you can dispatch some messages based on their origin to different location (for example, color them differently when writing to the console).</p> <p>You can’t do that, there is no way of saying what the origin is of anything here. </p> <p>I’ll touch the “IoC” stuff in a future post, I think that this is enough for now.</p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Reviews"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-23T09:39:57.0000000+03:00",
+      "PublishAt": "2011-07-01T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": "users/1",
+      "LastEditedAt": "2011-06-30T17:49:05.1999247+03:00",
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 20,
+      "CommentsId": "postcomments/28673",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "reviews"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Mon, 04 Jul 2011 06:50:34 GMT",
+        "@id": "posts/28673",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-2500-0000-00000000259f",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Review: Microsoft N Layer App Sample, Part II–getting lost in the architecture",
+      "LegacySlug": null,
+      "Body": "<p>Continuing my review of <a href=\"http://microsoftnlayerapp.codeplex.com/\">http://microsoftnlayerapp.codeplex.com/</a>, an Official Guidance (shows up at: <a href=\"http://msdn.microsoft.com/es-es/architecture/en\">http://msdn.microsoft.com/es-es/architecture/en</a>) which people are expected to read and follow.</p> <p>So the first thing that I saw when I opened the solution was this:</p> <blockquote> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/Review-Microsoft-N-Layer-App-Sample-Part_8086/image_2.png\"><img style=\"background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/Review-Microsoft-N-Layer-App-Sample-Part_8086/image_thumb.png\" width=\"339\" height=\"599\"></a></p></blockquote> <p>Yes, I know that this is a sample application, and still, this bit <em>scares</em> me. I have never really used the modeling support inside VS, so I took a look there, to see what is going on.</p> <p>Take a look at one of those:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/Review-Microsoft-N-Layer-App-Sample-Part_8086/image_4.png\"><img style=\"background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/Review-Microsoft-N-Layer-App-Sample-Part_8086/image_thumb_1.png\" width=\"372\" height=\"480\"></a></p> <p>Do you see the problem here?</p> <p>As usual with those sort of questions, it is an issue of what is <em>not</em> here. There is not a <em>single </em>mention of the actual <em>application</em>. To be frank, at this point, all I know is that it is a sample application, but I don’t know what the sample is about.</p> <p>This is pretty scary, because I am pretty sure that if this is the case at that level, we are going to see much the same as we go deeper. I decided that it might behoove me to figure out what this application is about, so I checked the database project, and found:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/Review-Microsoft-N-Layer-App-Sample-Part_8086/image_6.png\"><img style=\"background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/Review-Microsoft-N-Layer-App-Sample-Part_8086/image_thumb_2.png\" width=\"311\" height=\"523\"></a></p> <p>Um… so it looks like it is about a bank, but also about books, and orders and software. I don’t really see how they connect right now, but we will see, I hope.</p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Reviews"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-23T09:29:02.0882479+03:00",
+      "PublishAt": "2011-06-30T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": "users/1",
+      "LastEditedAt": "2011-06-23T09:39:58.4001668+03:00",
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 47,
+      "CommentsId": "postcomments/27649",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "reviews"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Fri, 01 Jul 2011 07:57:31 GMT",
+        "@id": "posts/27649",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-2500-0000-0000000003b1",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Review: Microsoft N Layer App Sample, Part I",
+      "LegacySlug": null,
+      "Body": "<p>I was forwarded this link <a href=\"http://microsoftnlayerapp.codeplex.com/\">http://microsoftnlayerapp.codeplex.com/</a> with a request to review it. I thought about skipping it until I saw:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/Review-Microsoft-N-Layer_9148/image_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/Review-Microsoft-N-Layer_9148/image_thumb.png\" width=\"1006\" height=\"96\"></a></p> <p>The main problem here? </p> <p>If it is a simple business scenario, <em>it doesn’t need DDD</em>.</p> <p>Now, just to be clear on this sample app. It is not someone working on their free time, this is something that is Official Guidance (shows up at: <a href=\"http://msdn.microsoft.com/es-es/architecture/en\">http://msdn.microsoft.com/es-es/architecture/en</a>) and people are expected to read and follow this.</p> <p>I haven’t reviewed the code yet, but I am scared just by looking at the architecture diagram.</p> <p><img src=\"http://blogs.msdn.com/cfs-filesystemfile.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-84-75-metablogapi/5658.image_5F00_1299F40D.png\" width=\"448\" height=\"480\"></p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Reviews",
+          "Microsoft"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-14T10:28:16.2442691+03:00",
+      "PublishAt": "2011-06-29T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": null,
+      "LastEditedAt": null,
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 76,
+      "CommentsId": "postcomments/19457",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "reviews",
+          "microsoft"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Tue, 05 Jul 2011 12:46:51 GMT",
+        "@id": "posts/19457",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-2500-0000-0000000084bf",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "You can’t cache DateTime.Now",
+      "LegacySlug": null,
+      "Body": "<p>One of the things that were itching me was the fact that it seems that not all the queries in RaccoonBlog were hitting the cache. Oh, it is more than fast enough, but I couldn’t really figure out what is going on there. Then again, it was never important enough for me to dig in.</p> <p>I was busy doing the profiling stuff for RavenDB and I used RaccoonBlog as my testing ground, when I realized what the problem was:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/You-cant-cache-DateTime.Now_F5AF/image_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/You-cant-cache-DateTime.Now_F5AF/image_thumb.png\" width=\"1044\" height=\"61\"></a></p> <p>Everything was working just fine, the problem was here:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/You-cant-cache-DateTime.Now_F5AF/image_4.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/You-cant-cache-DateTime.Now_F5AF/image_thumb_1.png\" width=\"635\" height=\"92\"></a></p> <p>Do you get the light bulb moment that I had? I was using Now in a query, and since Now by <em>definition</em> changes, we keep generating new queries, which can’t be cached, etc.</p> <p>I changed all of the queries that contained Now to:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/You-cant-cache-DateTime.Now_F5AF/image_8.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/You-cant-cache-DateTime.Now_F5AF/image_thumb_3.png\" width=\"712\" height=\"83\"></a></p>   <p>Which means that it would only use a different value every minute. Once I fixed that, I <em>still</em> saw that there was a caching problem, which led me to discover that there was an error in how we calculated etags for dynamic indexes after they have been promoted. Even a very basic profiling tool helped us fix two separate bugs (in Raccoon Blog and in RavenDB).</p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Raven",
+          "Performance"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-21T18:56:52.2017107+03:00",
+      "PublishAt": "2011-06-28T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": null,
+      "LastEditedAt": null,
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 5,
+      "CommentsId": "postcomments/26625",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "raven",
+          "performance"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Thu, 30 Jun 2011 19:26:31 GMT",
+        "@id": "posts/26625",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-2500-0000-00000000038d",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "RavenDB Aggressive Caching Mode",
+      "LegacySlug": null,
+      "Body": "<p>RavenDB has the notion of HTTP caching out of the box, what this means is that by default, without you having to take any action, RavenDB will cache as much as possible for you. It can get away with doing this because it is utilizing the notion of the 304 Not Modified response. The second time that we load an entity or execute a query, we can simply ask the server whatever the data has been modified since the last time we saw it, and if it wasn’t, we can just skip executing the code and get the data directly from the cache.</p> <p>This saves a lot in terms of bandwidth and processing power, it also means that we don’t have to worry about RavenDB’s caching returning any stale results, because we checked for that. It does mean, however, that we have to send a request to the server. There are situation where we want to squeeze even better performance from the system, and we can move to RavenDB’s aggressive caching mode.</p> <p>Aggressive caching means that RavenDB won’t even ask the server whatever anything has changed, it will simply return the reply directly from the local cache if it is there. This means that you might get stale data, but it also means that you’ll get it <em>fast</em>.</p> <p>You can activate this mode using:</p> <blockquote><pre class=\"csharpcode\"><span class=\"kwrd\">using</span> (session.Advanced.DocumentStore.AggressivelyCacheFor(TimeSpan.FromMinutes(5)))\r\n{\r\n    session.Load<User>(<span class=\"str\">\"users/1\"</span>);\r\n}\r\n</pre>\r\n<style type=\"text/css\">.csharpcode, .csharpcode pre\r\n{\r\n\tfont-size: small;\r\n\tcolor: black;\r\n\tfont-family: consolas, \"Courier New\", courier, monospace;\r\n\tbackground-color: #ffffff;\r\n\t/*white-space: pre;*/\r\n}\r\n.csharpcode pre { margin: 0em; }\r\n.csharpcode .rem { color: #008000; }\r\n.csharpcode .kwrd { color: #0000ff; }\r\n.csharpcode .str { color: #006080; }\r\n.csharpcode .op { color: #0000c0; }\r\n.csharpcode .preproc { color: #cc6633; }\r\n.csharpcode .asp { background-color: #ffff00; }\r\n.csharpcode .html { color: #800000; }\r\n.csharpcode .attr { color: #ff0000; }\r\n.csharpcode .alt \r\n{\r\n\tbackground-color: #f4f4f4;\r\n\twidth: 100%;\r\n\tmargin: 0em;\r\n}\r\n.csharpcode .lnum { color: #606060; }\r\n</style>\r\n</blockquote>\r\n<p>Now, if there is a value in the cache for users/1 that is at most 5 minutes old, we can directly use that.</p>\r\n<p>It also works on queries too:</p>\r\n<blockquote><pre class=\"csharpcode\"><span class=\"kwrd\">using</span> (session.Advanced.DocumentStore.AggressivelyCacheFor(TimeSpan.FromMinutes(5)))\r\n{\r\n    session.Query<User>().ToList();\r\n}</pre>\r\n<style type=\"text/css\">.csharpcode, .csharpcode pre\r\n{\r\n\tfont-size: small;\r\n\tcolor: black;\r\n\tfont-family: consolas, \"Courier New\", courier, monospace;\r\n\tbackground-color: #ffffff;\r\n\t/*white-space: pre;*/\r\n}\r\n.csharpcode pre { margin: 0em; }\r\n.csharpcode .rem { color: #008000; }\r\n.csharpcode .kwrd { color: #0000ff; }\r\n.csharpcode .str { color: #006080; }\r\n.csharpcode .op { color: #0000c0; }\r\n.csharpcode .preproc { color: #cc6633; }\r\n.csharpcode .asp { background-color: #ffff00; }\r\n.csharpcode .html { color: #800000; }\r\n.csharpcode .attr { color: #ff0000; }\r\n.csharpcode .alt \r\n{\r\n\tbackground-color: #f4f4f4;\r\n\twidth: 100%;\r\n\tmargin: 0em;\r\n}\r\n.csharpcode .lnum { color: #606060; }\r\n</style>\r\n</blockquote>\r\n<p>This is an explicit step beyond the normal caching, and it does mean that you might get out of date information, but if you really want to reduce the number of remote calls, it is a really nice feature.</p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Raven",
+          "Performance"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-21T17:24:23.7124500+03:00",
+      "PublishAt": "2011-06-27T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": null,
+      "LastEditedAt": null,
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 9,
+      "CommentsId": "postcomments/25601",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "raven",
+          "performance"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Tue, 28 Jun 2011 09:26:35 GMT",
+        "@id": "posts/25601",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-2300-0000-000000000123",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Raccoon Blog and RavenDB–One month later",
+      "LegacySlug": null,
+      "Body": "<p>One of the fun parts about RavenDB is that it will self optimize itself for you depending on how you are using your data. </p> <p>With this blog, I decided when going live with RavenDB that I <em>would not</em> follow the best practices of ensuring static indexes for everything, but would let it figure it out on its own.</p> <p>Today, I got curious and decided to check up on that:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/RaccoonBlog-and-RavenDBOne-month-later_D4AD/image_4.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/RaccoonBlog-and-RavenDBOne-month-later_D4AD/image_thumb_1.png\" width=\"771\" height=\"397\"></a></p> <p>What you see is pretty interesting.</p> <ul> <li>The first three indexes were automatically created by RavenDB in response to queries made on the database.</li> <li>The Raven/* indexes are created by RavenDB itself, for the Raven Studio.</li> <li>The MapReduce indexes are for statistics on the blog, and are the only two that were actually created by the application explicitly.</li></ul>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Raven",
+          "Blog"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-21T15:19:18.1460321+03:00",
+      "PublishAt": "2011-06-24T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": null,
+      "LastEditedAt": null,
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 15,
+      "CommentsId": "postcomments/24577",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "raven",
+          "blog"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Mon, 27 Jun 2011 10:32:26 GMT",
+        "@id": "posts/24577",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-2300-0000-0000000000d3",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Where are your debug hooks?",
+      "LegacySlug": null,
+      "Body": "<p>One of the most important things that I learned about working with software is that you <em>have</em> to design, from the get go, the debug ability of the system. This is important, because by default, here is how the your system reports its state:</p> <p><img src=\"http://chrisstephenson.typepad.com/photos/uncategorized/2007/03/31/black_box.jpg\"></p> <p>To make things worse, in many cases, we are talking about things that are <em>really</em> hard to figure out. With Rhino Service Bus, I had started, from day one, to add a <em>lot</em> of debug logs, we had the idea of the logging endpoint, error messages went to the error queue along with the error that they generated, etc.</p> <p>With NHibernate, it took me three days after starting to build NH Prof to figure out that NH Prof was a great tool to use when <em>working on NHibernate itself.  </em>With NH Prof, the actual file format that we used is an event stream, which is logged locally. Which means that the process of opening a saved file and listening to a running application is <em>the same</em>. That means that you can send me you File > Save output, and I can simulate locally the exact conditions that led to whatever problems you had.</p> <p>As software becomes more and more complex, threading is involved, complex scenarios are introduced, multiple actors involved and more and more data is streaming in. The old patterns of debugging through a problem become less and less relevant. To put it simply, it is less and less <em>possible</em> to easily reconstruct a problem in most scenarios, at least, it is very hard to do from the information given.</p> <p>Last week I started to add support for profiling RavenDB. The intent was mostly to allow us to build better integration with web applications, but during the process of investigating a <em>very</em> nasty bug, I figured out that I could use this profiling information to figure out what is going on. I did, and seeing the information, it was immediately obvious what was wrong.</p> <p>I decided that I might was well go the whole hog there and introduced this:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/Where-is-your-debug-hooks_9FA1/image_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/Where-is-your-debug-hooks_9FA1/image_thumb.png\" width=\"769\" height=\"739\"></a></p> <p>No, it isn’t RavenDB Profiler (not yet), but it is a debug visualizer that you can use to look at the raw requests. It is a bit more than just a Fiddler clone, too, since it has awareness of things like RavenDB sessions, caching, aggressive caching, etc. </p> <p>In the short time that this API is available, it has already help resolve at least two separate (and very hard to figure out) bugs.</p>\r\n<p>I learned two things from the experience:</p>\r\n<ul>\r\n<li>Having the debug hooks is <em>critically important, </em>because it means that you can access that information at need.</li>\r\n<li>Just having the debug hooks is not enough, you have to provide a good way for them to be <em>used</em>.</li></ul>\r\n<p>In this case, it is a debugger visualizer, but we will have additional ways to expose this information to the users.</p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Raven",
+          "Bugs"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-19T11:45:43.0000000+03:00",
+      "PublishAt": "2011-06-23T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": "users/1",
+      "LastEditedAt": "2011-06-19T11:53:32.2094713+03:00",
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 10,
+      "CommentsId": "postcomments/21505",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "raven",
+          "bugs"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Thu, 30 Jun 2011 23:12:54 GMT",
+        "@id": "posts/21505",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-2500-0000-0000000003a5",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Enhancing the RavenDB consistency model",
+      "LegacySlug": null,
+      "Body": "<p>From the get go, we have built <a href=\"http://ravendb.net\">RavenDB</a> to be as easy to use as possible. Quite explicitly, wherever possible, we aimed to make it as simple as possible for someone familiar with .NET. The fun part is sometimes looking at people’s expectations and answering them is a pleasure, such as this one:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/Enhancing-the-RavenDB-consistency-model_C1CC/image_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/Enhancing-the-RavenDB-consistency-model_C1CC/image_thumb.png\" width=\"777\" height=\"165\"></a></p> <p>The reasons for this exchange being amusing is that RavenDB doesn’t have the <em>concept</em> of expensive queries. For the most parts, queries are merely scanning through an already computed index. RavenDB does no computation and very little work to answer your queries, so the notion of an expensive query is meaningless, there aren’t any.</p> <p align=\"left\">That said, this behavior does comes at a cost, it means that we have to do the work of computing the indexes at some stage, and in our case, we have chosen to do so on the background. What <em>that</em> means, in turn, is the whole notion of queries potentially returning stale results. As it turned out, there is a actually a surprisingly few cases where you can’t tolerate some staleness in your application, and that makes RavenDB highly suited for a large number of scenarios.</p> <p align=\"left\">There is, however, one common scenario that is annoying, the Create –> List flow. As a user, I want to complete the Create screen:</p> <p align=\"left\"><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/Enhancing-the-RavenDB-consistency-model_C1CC/image_4.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/Enhancing-the-RavenDB-consistency-model_C1CC/image_thumb_1.png\" width=\"244\" height=\"141\"></a></p> <p>And then I want to see the List screen:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/Enhancing-the-RavenDB-consistency-model_C1CC/image_6.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/Enhancing-the-RavenDB-consistency-model_C1CC/image_thumb_2.png\" width=\"244\" height=\"54\"></a></p> <p>And naturally I expect to see the just created item in the list. That is the one scenario where people usually run into RavenDB’s consistency model, and it brought a few complaints every now and then. If the timing is just wrong, you may be able to issue the next request before the addition to the database had the chance to index, resulting in a missing update. </p> <p>Usually, the advice was to add a WaitForNonStaleResultsAsOfNow(), which resolved this issue, so we didn’t really consider this any further. It was just one of those things that you had to understand about the way RavenDB worked.</p> <p>Recently, however, we got a bug report for this exact scenario, and the user couldn’t just use WaitForNonStaleResultsAsOfNow(), or to be rather more accurate, he was already using it, but it wasn’t working. We eventually figured out that the problem was clock synchronization between the server and client computers. That forced us to re-consider how to approach this. After looking at several alternatives, we ended up creating a new consistency model for RavenDB. </p> <p>In this consistency model, we are basically ensuring a very simple metric, “you can query anything that you have written”, instead of relying on the time being the same everywhere, we have decided to use the etags that are being reported back to the server. Using this approach, you can basically ignore the difference between RavenDB and the traditional Relational Database, since it will behave (externally), in much the same fashion.</p> <p>You can enable this mode on a per query basis:</p> <blockquote> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/Enhancing-the-RavenDB-consistency-model_C1CC/image_8.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/Enhancing-the-RavenDB-consistency-model_C1CC/image_thumb_3.png\" width=\"479\" height=\"73\"></a></p></blockquote> <p>Or you can enable this for all queries:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/Enhancing-the-RavenDB-consistency-model_C1CC/image_10.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/Enhancing-the-RavenDB-consistency-model_C1CC/image_thumb_4.png\" width=\"598\" height=\"31\"></a></p> <p>I am pretty proud of this feature, since it simplify a lot for most users, and it provides a very effective (and simple) way to approach consistency. This is especially true if we are talking about multiple clients working on the same database (which is the case in the issue that was raised).</p> <p>Whenever each client is writing, they will have to wait for their changes to be indexed, but they won’t have to wait for the changes from any other client. That matches the user’s expectation, and also allow RavenDB to answer most queries without doing any waiting whatsoever.</p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": []
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-19T12:03:31.3587366+03:00",
+      "PublishAt": "2011-06-22T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": null,
+      "LastEditedAt": null,
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 19,
+      "CommentsId": "postcomments/22529",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": []
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Wed, 29 Jun 2011 19:25:02 GMT",
+        "@id": "posts/22529",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-2500-0000-0000000000ea",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "You’ll pry transactions from my dead, cold, broken hands",
+      "LegacySlug": null,
+      "Body": "<p>“We tried using NoSQL, but we are moving to Relational Databases because they are easier…”</p> <p>That was the gist of a conversation that I had with a client. I wasn’t quite sure what was going on there, so I invited myself to their offices and took a peek at the code. Their actual scenario is classified, so we will use the standard blog model to show a similar example. In this case, we have there entities, the BlogPost, the User and the Comment. What they wanted is to ensure is that when a user is commenting on a blog post, it will update the comments’ count on the blog post, update the posted comments count on the user and insert the new comment. </p> <p>The catch was that they wanted the entire thing to be atomic, to either happen completely or not at all. The other catch was that they were using MongoDB. The code looked something like this:</p> <blockquote><pre class=\"csharpcode\"><span class=\"kwrd\">public</span> ActionResult AddComment(<span class=\"kwrd\">string</span> postId, <span class=\"kwrd\">string</span> userId, Comment comment)\r\n{\r\n    <span class=\"kwrd\">int</span> state = 0;\r\n    var blogPost = database.GetCollection<BlogPost>(<span class=\"str\">\"BlogPosts\"</span>).FindOneById(postId);\r\n    var user = database.GetCollection<User>(<span class=\"str\">\"Users\"</span>).FindOneById(userId);\r\n    <span class=\"kwrd\">try</span>\r\n    {\r\n        database.GetCollection<Comment>(<span class=\"str\">\"Comments\"</span>).Save(comment);\r\n        state = 1;\r\n\r\n        blogPost.CommentsCount++;\r\n        database.GetCollection<BlogPost>(<span class=\"str\">\"BlogPosts\"</span>).Save(blogPost);\r\n        state = 2;\r\n\r\n        user.PostecCommentsCount++;\r\n        database.GetCollection<User>(<span class=\"str\">\"Users\"</span>).Save(user);\r\n        state = 3;\r\n\r\n\r\n        <span class=\"kwrd\">return</span> Json(<span class=\"kwrd\">new</span> {CommentAdded = <span class=\"kwrd\">true</span>});\r\n    }\r\n    <span class=\"kwrd\">catch</span> (Exception)\r\n    {\r\n         <span class=\"rem\">// if (state == 0) //nothing happened yet, don't need to do anything</span>\r\n\r\n        <span class=\"kwrd\">if</span> (state >= 1)\r\n        {\r\n            database.GetCollection<Comment>(<span class=\"str\">\"Comments\"</span>).Remove(Query.EQ(<span class=\"str\">\"_id\"</span>, comment.Id), RemoveFlags.Single);\r\n        }\r\n        <span class=\"kwrd\">if</span> (state >= 2)\r\n        {\r\n            blogPost.CommentsCount--;\r\n            database.GetCollection<BlogPost>(<span class=\"str\">\"BlogPosts\"</span>).Save(blogPost);\r\n        }\r\n        <span class=\"kwrd\">if</span> (state >= 3)\r\n        {\r\n            user.PostecCommentsCount--;\r\n            database.GetCollection<User>(<span class=\"str\">\"Users\"</span>).Save(user);\r\n        }\r\n\r\n        <span class=\"kwrd\">throw</span>;\r\n    }\r\n}\r\n</pre>\r\n<style type=\"text/css\">.csharpcode, .csharpcode pre\r\n{\r\n\tfont-size: small;\r\n\tcolor: black;\r\n\tfont-family: consolas, \"Courier New\", courier, monospace;\r\n\tbackground-color: #ffffff;\r\n\t/*white-space: pre;*/\r\n}\r\n.csharpcode pre { margin: 0em; }\r\n.csharpcode .rem { color: #008000; }\r\n.csharpcode .kwrd { color: #0000ff; }\r\n.csharpcode .str { color: #006080; }\r\n.csharpcode .op { color: #0000c0; }\r\n.csharpcode .preproc { color: #cc6633; }\r\n.csharpcode .asp { background-color: #ffff00; }\r\n.csharpcode .html { color: #800000; }\r\n.csharpcode .attr { color: #ff0000; }\r\n.csharpcode .alt \r\n{\r\n\tbackground-color: #f4f4f4;\r\n\twidth: 100%;\r\n\tmargin: 0em;\r\n}\r\n.csharpcode .lnum { color: #606060; }\r\n</style>\r\n</blockquote>\r\n<p>Take a moment or two to go over the code and figure out what was going on in there. It took me a while to really figure that one out.</p>\r\n<p><strong>Important</strong>, before I continue with this post, I feel that I need to explain what the problem is and why it is there. Put simply, MongoDB doesn’t support multi document transactions. The reason that it doesn’t support multi document transactions is that the way MongoDB auto sharding works, different documents may be on different shards, therefor requiring synchronization between different machines, which no one has managed to make scalable an efficient. MongoDB choose, for reasons of scalability and performance, to not implement this feature. This is document and well know part of the product.</p>\r\n<p>It makes absolute sense, except that it leads to code like the one above, when the user really do want to have atomic multi document writes. Just to be certain that the point has been hammered home. The code above <em>still does not ensures atomic multi document writes</em>. For example, if the server shuts down between immediately after setting state to 2, there is nothing that the code can do to revert the previous writes (after all, they can’t contact the server to tell it that it to revert them).</p>\r\n<p>And there are other problems with this approach, the code is ugly, and it is extremely brittle. It is very easy to update one part and not the other… but at this point I think that I am busy explaining why horse excrement isn’t suitable for gourmet food. </p>\r\n<p>The major problem with this code is that it is trying to do something that the underlying database doesn’t support. I sat down with the customer and talked about the advantages and disadvantages of staying with a document database vs. moving to a relational database. A relational database would handle atomic multi row writes easily, but would require many reads and many joins to show a single page.</p>\r\n<p>That was the point where I put the disclaimer “I am speaking about my own product, and I am likely biased, be aware of that”.</p>\r\n<p>The same code in RavenDB would be:</p>\r\n<blockquote><pre class=\"csharpcode\"><span class=\"kwrd\">public</span> ActionResult AddComment(<span class=\"kwrd\">string</span> postId, <span class=\"kwrd\">string</span> userId, Comment comment)\r\n{\r\n    <span class=\"kwrd\">using</span>(var session = documentStore.OpenSession())\r\n    {\r\n        session.Save(comment);\r\n        session.Load<BlogPost>(postId).CommentsCount++;\r\n        session.Load<User>(userId).PostedCommentCount++;\r\n\r\n        session.SaveChanges(); <span class=\"rem\">// Atomic, either all are saved or none are</span>\r\n    }\r\n    \r\n    <span class=\"kwrd\">return</span> Json(<span class=\"kwrd\">new</span> { CommentAdded = <span class=\"kwrd\">true</span> });\r\n\r\n}</pre>\r\n<style type=\"text/css\">.csharpcode, .csharpcode pre\r\n{\r\n\tfont-size: small;\r\n\tcolor: black;\r\n\tfont-family: consolas, \"Courier New\", courier, monospace;\r\n\tbackground-color: #ffffff;\r\n\t/*white-space: pre;*/\r\n}\r\n.csharpcode pre { margin: 0em; }\r\n.csharpcode .rem { color: #008000; }\r\n.csharpcode .kwrd { color: #0000ff; }\r\n.csharpcode .str { color: #006080; }\r\n.csharpcode .op { color: #0000c0; }\r\n.csharpcode .preproc { color: #cc6633; }\r\n.csharpcode .asp { background-color: #ffff00; }\r\n.csharpcode .html { color: #800000; }\r\n.csharpcode .attr { color: #ff0000; }\r\n.csharpcode .alt \r\n{\r\n\tbackground-color: #f4f4f4;\r\n\twidth: 100%;\r\n\tmargin: 0em;\r\n}\r\n.csharpcode .lnum { color: #606060; }\r\n</style>\r\n</blockquote>\r\n<p>There are a couple of things to note here:</p>\r\n<ul>\r\n<li>RavenDB supports atomic multi document writes without anything required. </li>\r\n<li>This isn’t the best RavenDB code, ideally I wouldn’t have to create the session here, but in the infrastructure, but you get the point.</li></ul>\r\n<p>We also support change tracking for loaded entities, so we didn’t even need to tell it to save the loaded instances. All in all, I also think that the code is prettier, easier to follow and would produce correct results in the case of an error. </p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Raven",
+          "NoSQL"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-19T19:35:45.0000000+03:00",
+      "PublishAt": "2011-06-20T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": "users/1",
+      "LastEditedAt": "2011-06-20T19:36:05.5646957+03:00",
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 40,
+      "CommentsId": "postcomments/23553",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "raven",
+          "nosql"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Fri, 24 Jun 2011 22:19:58 GMT",
+        "@id": "posts/23553",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-2300-0000-00000000009c",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Caching, the funny way",
+      "LegacySlug": null,
+      "Body": "<p>One of the most frustrating things in working with RavenDB is that the client API is compatible with the 3.5 framework. That means that for a lot of things we either have to use conditional compilation or we have to forgo using the new stuff in 4.0.</p> <p>Case in point, we have the following issue:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/Caching-the-funny-way_8638/image_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/Caching-the-funny-way_8638/image_thumb.png\" width=\"944\" height=\"199\"></a></p> <p>The code in question currently looks like this:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/Caching-the-funny-way_8638/image_4.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/Caching-the-funny-way_8638/image_thumb_1.png\" width=\"505\" height=\"66\"></a></p> <p>This is the sort of code that simply <em>begs</em> to be used with ConcurrentDictionary. Unfortunately, we can’t use that here, because of the 3.5 limitation. Instead, I went with the usual, non thread safe, dictionary approach. I wanted to avoid locking, so I ended up with:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/Caching-the-funny-way_8638/image_6.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/Caching-the-funny-way_8638/image_thumb_2.png\" width=\"629\" height=\"242\"></a></p> <p>Pretty neat, even if I say so myself. The fun part that without any locking, this is completely thread safe. The field itself is initialized to an empty dictionary in the constructor, of course, but that is the only thing that is happening outside this method. For that matter, I didn’t even bother to make the field volatile. The only thing that this relies on is that pointer writes are atomic.</p> <p>How comes this works, and what assumptions am I making that makes this thing possible?</p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Design",
+          "Challanges"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-13T09:40:05.0637386+03:00",
+      "PublishAt": "2011-06-16T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": null,
+      "LastEditedAt": null,
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 21,
+      "CommentsId": "postcomments/17409",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "design",
+          "challanges"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Wed, 22 Jun 2011 11:27:37 GMT",
+        "@id": "posts/17409",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-2100-0000-000000000033",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Help us select the new RavenDB logo",
+      "LegacySlug": null,
+      "Body": "<p>We run a contest to figure out what the next logo would be, and people came up with some really nice stuff! So nice that we are having trouble figuring out which to choose.</p> <p>So we thought about asking you <img style=\"border-bottom-style: none; border-right-style: none; border-top-style: none; border-left-style: none\" class=\"wlEmoticon wlEmoticon-smile\" alt=\"Smile\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/wlEmoticon-smile_2.png\"></p> <p>Here are the final options, you can click on each image to see it in full:</p> <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\" width=\"965\"> <tbody> <tr> <td valign=\"top\" width=\"364\"><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/34_4.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"34\" border=\"0\" alt=\"34\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/34_thumb_1.png\" width=\"240\" height=\"231\"></a></td> <td valign=\"top\" width=\"311\"><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/37_4.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"37\" border=\"0\" alt=\"37\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/37_thumb_1.png\" width=\"240\" height=\"233\"></a></td> <td valign=\"top\" width=\"288\"><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/36_4.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"36\" border=\"0\" alt=\"36\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/36_thumb_1.png\" width=\"232\" height=\"240\"></a></td></tr> <tr> <td valign=\"top\" width=\"413\"> <p align=\"center\">34</p></td> <td valign=\"top\" width=\"336\"> <p align=\"center\">37</p></td> <td valign=\"top\" width=\"304\"> <p align=\"center\">36</p></td></tr> <tr> <td valign=\"top\" width=\"428\"><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/40_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"40\" border=\"0\" alt=\"40\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/40_thumb.png\" width=\"240\" height=\"219\"></a></td> <td valign=\"top\" width=\"344\"><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/19_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"19\" border=\"0\" alt=\"19\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/19_thumb.png\" width=\"240\" height=\"215\"></a></td> <td valign=\"top\" width=\"309\"><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/49_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"49\" border=\"0\" alt=\"49\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/49_thumb.png\" width=\"240\" height=\"220\"></a></td></tr> <tr> <td valign=\"top\" width=\"432\"> <p align=\"center\">40</p></td> <td valign=\"top\" width=\"347\"> <p align=\"center\">19</p></td> <td valign=\"top\" width=\"310\"> <p align=\"center\">49</p></td></tr> <tr> <td valign=\"top\" width=\"433\"><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/52_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"52\" border=\"0\" alt=\"52\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/52_thumb.png\" width=\"240\" height=\"209\"></a></td> <td valign=\"top\" width=\"348\"><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/43_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"43\" border=\"0\" alt=\"43\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/43_thumb.png\" width=\"240\" height=\"209\"></a></td> <td valign=\"top\" width=\"311\"> </td></tr> <tr> <td valign=\"top\" width=\"433\"> <p align=\"center\">52</p></td> <td valign=\"top\" width=\"348\"> <p align=\"center\">43</p></td> <td valign=\"top\" width=\"312\"> </td></tr> <tr> <td valign=\"top\" width=\"432\"><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/29_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"29\" border=\"0\" alt=\"29\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/29_thumb.png\" width=\"240\" height=\"209\"></a></td> <td valign=\"top\" width=\"348\"><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/42_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"42\" border=\"0\" alt=\"42\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/42_thumb.png\" width=\"240\" height=\"209\"></a></td> <td valign=\"top\" width=\"312\"><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/41_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"41\" border=\"0\" alt=\"41\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/41_thumb.png\" width=\"240\" height=\"209\"></a></td></tr> <tr> <td valign=\"top\" width=\"432\"> <p align=\"center\">29</p></td> <td valign=\"top\" width=\"348\"> <p align=\"center\">42</p></td> <td valign=\"top\" width=\"312\"> <p align=\"center\">41</p></td></tr> <tr> <td valign=\"top\" width=\"432\"> </td> <td valign=\"top\" width=\"348\"> </td> <td valign=\"top\" width=\"312\"> </td></tr> <tr> <td valign=\"top\" width=\"432\"><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/28_4.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"28\" border=\"0\" alt=\"28\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/28_thumb_1.png\" width=\"240\" height=\"209\"></a></td> <td valign=\"top\" width=\"348\"><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/45_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"45\" border=\"0\" alt=\"45\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/45_thumb.png\" width=\"240\" height=\"209\"></a></td> <td valign=\"top\" width=\"312\"><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/46_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"46\" border=\"0\" alt=\"46\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/46_thumb.png\" width=\"240\" height=\"209\"></a></td></tr> <tr> <td valign=\"top\" width=\"432\"> <p align=\"center\">28</p></td> <td valign=\"top\" width=\"348\"> <p align=\"center\">45</p></td> <td valign=\"top\" width=\"312\"> <p align=\"center\">46</p></td></tr></tbody></table> <p>We intend to use the new logo as the basis for a new website and probably some changes to the RavenDB Management Studio, so it is pretty important to us.</p> <p>And now I can drop the “we” stuff and tell you that I am very excited by all the choices that we have, I am partial to the orange ones, I’ll admit, but that is a long standing weakness <img style=\"border-bottom-style: none; border-right-style: none; border-top-style: none; border-left-style: none\" class=\"wlEmoticon wlEmoticon-smile\" alt=\"Smile\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/50f6cdcb6aad_B9C0/wlEmoticon-smile_2.png\"></p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Raven"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-16T13:27:06.0000000+03:00",
+      "PublishAt": "2011-06-16T10:25:00.0000000+03:00",
+      "SkipAutoReschedule": true,
+      "LastEditedByUserId": "users/1",
+      "LastEditedAt": "2011-06-21T13:07:42.1115716+03:00",
+      "IsDeleted": false,
+      "AllowComments": false,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 90,
+      "CommentsId": "postcomments/20481",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "raven"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Tue, 21 Jun 2011 10:07:42 GMT",
+        "@id": "posts/20481",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-1f00-0000-000000003ec4",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "More auth issues: 0xc000006d on Windows 2008 R2",
+      "LegacySlug": null,
+      "Body": "<p>Next on the schedule of problems we had an issue with <strong>again</strong>, with everything working fine remotely and <strong>not</strong> working when running locally. This time, it didn’t take as long to figure out what was going on, the root of the problem was “Account failed to log on (0xc000006d)”, and the explanation for that is here:</p>\r\n<p><a href=\"http://code-journey.com/2009/account-failed-to-log-on-0xc000006d-unable-to-load-website-from-local-server/\">http://code-journey.com/2009/account-failed-to-log-on-0xc000006d-unable-to-load-website-from-local-server/</a></p>\r\n<p>The basic idea is that you can’t authenticate against the local server using anything except the local server name. </p>\r\n<p><strong>And it still didn’t work.</strong></p>\r\n<p>The server is Windows 2008 R2, and the documentation said that I had to set a registry key at: HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\MSV1_0</p>\r\n<p>That did <em>not</em> work, but what did work was setting the DisableLoopbackCheck at: HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa</p>\r\n<p>No idea why, and if there is a problem at the documentation for Windows 2008 R2, but this is how I got it working on my end. I would probably like it more if I was able to use the recommended solution, and not the solution explicitly <em>not </em>recommended.</p>\r\n<p>Any ideas? </p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Bugs",
+          "Production"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-13T08:50:04.0000000+03:00",
+      "PublishAt": "2011-06-15T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": "users/1",
+      "LastEditedAt": "2011-06-13T08:53:01.0578309+03:00",
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 7,
+      "CommentsId": "postcomments/16385",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "bugs",
+          "production"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Thu, 16 Jun 2011 00:27:44 GMT",
+        "@id": "posts/16385",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-1e00-0000-000000008ff2",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "The evil tricks of “It Works On My Machine”, in reverse",
+      "LegacySlug": null,
+      "Body": "<p>The following is quite annoying. I am trying to make an authenticated request to a web server. In this instance, we are talking about communication from one IIS application to another IIS application (the second application is RavenDB hosted inside IIS).</p> <p>The part that drives me CRAZY is that I am getting this error when I am trying to make an authenticated request, but <em>using the exact same code and credentials</em>, from another machine, I can make this work just fine.</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/56d84ef863a9_E9FE/image_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/56d84ef863a9_E9FE/image_thumb.png\" width=\"1291\" height=\"193\"></a></p> <p>It took me a while to figure out that most important part, when running locally, I was running under my own account, when running remotely, the application run under IIS account. The really annoying part was that even when running on IIS locally, it still worked locally and failed remotely. </p> <p>It took me even longer to figure out that the local IIS was configure to run under my own account as well <img style=\"border-bottom-style: none; border-left-style: none; border-top-style: none; border-right-style: none\" class=\"wlEmoticon wlEmoticon-sadsmile\" alt=\"Sad smile\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/56d84ef863a9_E9FE/wlEmoticon-sadsmile_2.png\"></p> <p>Once that discovery was made, I was able to figure out what is wrong and implement a work around (run the remote IIS site under a custom user name). I know that the actual problem is something relating to permissions on certificate store, but I have no idea <em>how</em>, or, for that matter, <em>which certificate</em>?</p> <p>This is plain old HTTP auth, no SSL, client certs, etc. I am assuming that this is raised because we are using Windows Auth, but I am not sure what is going on here with regards to which certificate should I grant to which user, or even how to do this.</p> <p>Any ideas?</p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Community",
+          "Development",
+          "Bugs"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-13T07:40:13.0330563+03:00",
+      "PublishAt": "2011-06-14T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": null,
+      "LastEditedAt": null,
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 9,
+      "CommentsId": "postcomments/15361",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "community",
+          "development",
+          "bugs"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Fri, 17 Jun 2011 01:34:33 GMT",
+        "@id": "posts/15361",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-1e00-0000-0000000092d3",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Help us select the new RavenDB logo",
+      "LegacySlug": null,
+      "Body": "<p>We are running a contest for the new RavenDB logo, we would really like to hear what you think:</p> <p><a href=\"http://99designs.com/logo-design/contests/create-next-logo-ravendb-80950\">http://99designs.com/logo-design/contests/create-next-logo-ravendb-80950</a></p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Raven"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-13T13:02:20.7418611+03:00",
+      "PublishAt": "2011-06-13T10:02:00.0000000+03:00",
+      "SkipAutoReschedule": true,
+      "LastEditedByUserId": null,
+      "LastEditedAt": null,
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 28,
+      "CommentsId": "postcomments/18433",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "raven"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Wed, 15 Jun 2011 20:23:13 GMT",
+        "@id": "posts/18433",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-1e00-0000-000000008feb",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Concurrent Max",
+      "LegacySlug": null,
+      "Body": "<p>Can you think of a better way to implement this code?</p> <blockquote><pre class=\"csharpcode\"><span class=\"kwrd\">private</span> <span class=\"kwrd\">volatile</span> Guid lastEtag;\r\n<span class=\"kwrd\">private</span> <span class=\"kwrd\">readonly</span> <span class=\"kwrd\">object</span> lastEtagLocker = <span class=\"kwrd\">new</span> <span class=\"kwrd\">object</span>();</pre><pre class=\"csharpcode\">\r\n<span class=\"kwrd\">internal</span> <span class=\"kwrd\">void</span> UpdateLastWrittenEtag(Guid? etag)\r\n{\r\n    <span class=\"kwrd\">if</span> (etag == <span class=\"kwrd\">null</span>)\r\n        <span class=\"kwrd\">return</span>;\r\n\r\n    var newEtag = etag.Value.ToByteArray();\r\n\r\n    <span class=\"rem\">// not the most recent etag</span>\r\n    <span class=\"kwrd\">if</span> (Buffers.Compare(lastEtag.ToByteArray(), newEtag) <= 0)\r\n    {\r\n        <span class=\"kwrd\">return</span>;\r\n    }\r\n\r\n    <span class=\"kwrd\">lock</span> (lastEtagLocker)\r\n    {\r\n        <span class=\"rem\">// not the most recent etag</span>\r\n        <span class=\"kwrd\">if</span> (Buffers.Compare(lastEtag.ToByteArray(), newEtag) <= 0)\r\n        {\r\n            <span class=\"kwrd\">return</span>;\r\n        }\r\n\r\n        lastEtag = etag.Value;\r\n    }\r\n}\r\n</pre>\r\n<style type=\"text/css\">.csharpcode, .csharpcode pre\r\n{\r\n\tfont-size: small;\r\n\tcolor: black;\r\n\tfont-family: consolas, \"Courier New\", courier, monospace;\r\n\tbackground-color: #ffffff;\r\n\t/*white-space: pre;*/\r\n}\r\n.csharpcode pre { margin: 0em; }\r\n.csharpcode .rem { color: #008000; }\r\n.csharpcode .kwrd { color: #0000ff; }\r\n.csharpcode .str { color: #006080; }\r\n.csharpcode .op { color: #0000c0; }\r\n.csharpcode .preproc { color: #cc6633; }\r\n.csharpcode .asp { background-color: #ffff00; }\r\n.csharpcode .html { color: #800000; }\r\n.csharpcode .attr { color: #ff0000; }\r\n.csharpcode .alt \r\n{\r\n\tbackground-color: #f4f4f4;\r\n\twidth: 100%;\r\n\tmargin: 0em;\r\n}\r\n.csharpcode .lnum { color: #606060; }\r\n</style>\r\n</blockquote>\r\n<p>We have multiple threads calling this function, and we need to ensure that lastEtag value is always the maximum value. This has the potential to be called often, so I want to make sure that I chose the best way to do this. Ideas?</p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "C#",
+          "Programming"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-12T11:48:31.2657976+03:00",
+      "PublishAt": "2011-06-12T08:43:00.0000000+03:00",
+      "SkipAutoReschedule": true,
+      "LastEditedByUserId": null,
+      "LastEditedAt": null,
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 31,
+      "CommentsId": "postcomments/14337",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "c",
+          "programming"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Tue, 14 Jun 2011 08:33:32 GMT",
+        "@id": "posts/14337",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-1e00-0000-00000000528a",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Elegant Code, Raccoon Blog’s CSS Controller",
+      "LegacySlug": null,
+      "Body": "<p>The following piece of code is responsible for the CSS generation for this blog:</p> <blockquote><pre class=\"csharpcode\"><span class=\"kwrd\">public</span> <span class=\"kwrd\">class</span> CssController : Controller\r\n{\r\n     <span class=\"kwrd\">public</span> ActionResult Merge(<span class=\"kwrd\">string</span>[] files)\r\n     {\r\n         var builder = <span class=\"kwrd\">new</span> StringBuilder();\r\n         <span class=\"kwrd\">foreach</span> (var file <span class=\"kwrd\">in</span> files)\r\n         {\r\n             var pathAllowed = Server.MapPath(Url.Content(<span class=\"str\">\"~/Content/css\"</span>));\r\n             var normalizeFile = Server.MapPath(Url.Content(Path.Combine(<span class=\"str\">\"~/Content/css\"</span>, file)));\r\n             <span class=\"kwrd\">if</span> (normalizeFile.StartsWith(pathAllowed) == <span class=\"kwrd\">false</span>)\r\n             {\r\n                 <span class=\"kwrd\">return</span> HttpNotFound(<span class=\"str\">\"Path not allowed\"</span>);\r\n             }\r\n             <span class=\"kwrd\">if</span> (System.IO.File.Exists(normalizeFile))\r\n             {\r\n                 Response.AddFileDependency(normalizeFile);\r\n                 builder.AppendLine(System.IO.File.ReadAllText(normalizeFile));\r\n             }\r\n         }\r\n\r\n         Response.Cache.VaryByParams[<span class=\"str\">\"files\"</span>] = <span class=\"kwrd\">true</span>;\r\n         Response.Cache.SetLastModifiedFromFileDependencies();\r\n         Response.Cache.SetETagFromFileDependencies();\r\n         Response.Cache.SetCacheability(HttpCacheability.Public);\r\n\r\n         var css = dotless.Core.Less.Parse(builder.ToString(), <span class=\"kwrd\">new</span> DotlessConfiguration());\r\n\r\n         <span class=\"kwrd\">return</span> Content(css, <span class=\"str\">\"text/css\"</span>);\r\n     }\r\n}</pre>\r\n<style type=\"text/css\">.csharpcode, .csharpcode pre\r\n{\r\n\tfont-size: small;\r\n\tcolor: black;\r\n\tfont-family: consolas, \"Courier New\", courier, monospace;\r\n\tbackground-color: #ffffff;\r\n\t/*white-space: pre;*/\r\n}\r\n.csharpcode pre { margin: 0em; }\r\n.csharpcode .rem { color: #008000; }\r\n.csharpcode .kwrd { color: #0000ff; }\r\n.csharpcode .str { color: #006080; }\r\n.csharpcode .op { color: #0000c0; }\r\n.csharpcode .preproc { color: #cc6633; }\r\n.csharpcode .asp { background-color: #ffff00; }\r\n.csharpcode .html { color: #800000; }\r\n.csharpcode .attr { color: #ff0000; }\r\n.csharpcode .alt \r\n{\r\n\tbackground-color: #f4f4f4;\r\n\twidth: 100%;\r\n\tmargin: 0em;\r\n}\r\n.csharpcode .lnum { color: #606060; }\r\n</style>\r\n</blockquote>\r\n<p>There are a <em>lot</em> of things going on in a very short amount of code. The CSS for this blog is defined as:</p>\r\n<blockquote><pre class=\"csharpcode\"><span class=\"kwrd\"><</span><span class=\"html\">link</span> <span class=\"attr\">rel</span><span class=\"kwrd\">=\"stylesheet\"</span> <span class=\"attr\">type</span><span class=\"kwrd\">=\"text/css\"</span> <span class=\"attr\">href</span><span class=\"kwrd\">=\"/blog/css?files=ResetCss.css&files=custom/ayende.settings.less.css&files=base.less.css&files=custom/ayende.less.css\"</span><span class=\"kwrd\">></span>\r\n</pre>\r\n<style type=\"text/css\">.csharpcode, .csharpcode pre\r\n{\r\n\tfont-size: small;\r\n\tcolor: black;\r\n\tfont-family: consolas, \"Courier New\", courier, monospace;\r\n\tbackground-color: #ffffff;\r\n\t/*white-space: pre;*/\r\n}\r\n.csharpcode pre { margin: 0em; }\r\n.csharpcode .rem { color: #008000; }\r\n.csharpcode .kwrd { color: #0000ff; }\r\n.csharpcode .str { color: #006080; }\r\n.csharpcode .op { color: #0000c0; }\r\n.csharpcode .preproc { color: #cc6633; }\r\n.csharpcode .asp { background-color: #ffff00; }\r\n.csharpcode .html { color: #800000; }\r\n.csharpcode .attr { color: #ff0000; }\r\n.csharpcode .alt \r\n{\r\n\tbackground-color: #f4f4f4;\r\n\twidth: 100%;\r\n\tmargin: 0em;\r\n}\r\n.csharpcode .lnum { color: #606060; }\r\n</style>\r\n</blockquote>\r\n<p>This means that while we have multiple CSS files that make maintaining things easier, we only make a single request to the server to get all of them.</p>\r\n<p>Next, and <strong>important</strong>, we have a security check that ensures that only files from the appropriate path can be served. If you aren’t in the CSS directory, you won’t be returned.</p>\r\n<p>Then we have a lot of code that is related to caching, which basically means that we will rely on the ASP.Net output cache to do everything for us. The really nice thing is that unless the files change, we will not be executing this code again, rather, it would be served directly from the cache, without any computation on our part.</p>\r\n<p>All in all, I am more than happy with this code.</p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Blog",
+          "Design"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-05T15:32:07.2433488+03:00",
+      "PublishAt": "2011-06-07T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": null,
+      "LastEditedAt": null,
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 31,
+      "CommentsId": "postcomments/13314",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "blog",
+          "design"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Mon, 04 Jul 2011 09:07:28 GMT",
+        "@id": "posts/13314",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-2500-0000-0000000025c2",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Fix the code, not the tooling",
+      "LegacySlug": null,
+      "Body": "<p>This is a story from the time (all those week or two ago) when we were building <a href=\"https://github.com/ayende/raccoonblog\">RaccoonBlog</a>. The issue of managing CSS came up. We use the same code base for multiple sites, and mostly just switch around the CSS values for colors, etc.</p> <p>It looks something like this:</p> <p><a href=\"http://ayende.com/blog/Images/Windows-Live-Writer/a8d3a392743a_D448/image_2.png\"><img style=\"background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px\" title=\"image\" border=\"0\" alt=\"image\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/a8d3a392743a_D448/image_thumb.png\" width=\"244\" height=\"129\"></a></p> <p>We are using the <a href=\"http://lesscss.org/\">less</a> syntax to generate a more reasonable development experience with CSS. We started with the <a href=\"http://www.weirdlover.com/2010/05/31/chirpy-has-a-new-home-and-new-features/\">Chirpy extension</a>, which provides build time CSS generation from less files inside Visual Studio. </p> <p>Well, I say started because when I heard that we were using an extension I sort of freaked out a bit. I don’t like extensions, I especially don’t like extensions that I have to install now on every machine that I use to work on RaccoonBlog.  The answer to that was that it takes 2 minutes or less, and is completely managed within the VS AddIn UI, so it is really painless.</p> <p>More than that, I was upset that it ruined my F5 scenario. That is, I could no longer make a change to the CSS file, hit F5 in the browser and see the changes. The answer to that is that I could still hit F5, I would just have to do that inside of Visual Studio, which is where I usually edit CSS anyway.</p> <p>I didn’t like the answers very much, and we went with a code base solution that preserved all of the usual niceties of plain old CSS files (more on that in my next post).</p> <p>The problem with tooling over code is that you need to have the tooling with you. And that is often an unacceptable burden. Consider the case of me wanting to make a modification on production to the way the site looks. Leave aside for a bit the concept of making modifications on productions, taking away the ability to do so is a Bad Thing, because if you need to do so, you need to do so Very Much.</p> <p>Tooling are there to support and help you, but if tooling impact the way you work, it has better not have <em>any</em> negative implications. For example, if one member of the team is using the <a href=\"http://nhprof.com\">NHibernate Profiler</a>, no one else on the team is impacted, they can go on and develop the application without any issue. But when using a tool like Chirpy, if you don’t have Chirpy installed, you can’t really work with the application CSS, and that isn’t something that I was willing to tolerate. Other options were raised as well, “we can do this in the build, you don’t need to do this via Chirpy”, but that just raised the same problem of breaking the Modify-CSS-Hit-F5-In-Browser cycle of work.</p> <p>The code to solve this problem was short, to the point and really interesting, and it preserved all the usual CSS properties without creating dependencies on tools which might not be there when we need them.</p>",
+      "Tags": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "Design"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-05T15:27:01.2025154+03:00",
+      "PublishAt": "2011-06-06T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": null,
+      "LastEditedAt": null,
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 12,
+      "CommentsId": "postcomments/13313",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "design"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Tue, 07 Jun 2011 11:12:29 GMT",
+        "@id": "posts/13313",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-0f00-0000-0000000206b3",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Fix it in the code, not in the documentation",
+      "LegacySlug": null,
+      "Body": "<p>One of the things that Fitzchak is working on right now is the <a href=\"http://blog.hibernatingrhinos.com/5/ravendb-in-practice-part-1-an-introduction-to-ravendb\">RavenDB in Practice</a> series. During the series, he run into an issue with RavenDB failing if the configured port is already taken. Since by default we use 8080, it wasn’t very surprising that on his machine, the 8080 port was already taken. Because he run into this problem, he set out to document how to fix this issue if you run into it.</p> <p>My approach was different, I don’t like documenting things. More to the point, documenting a problem is a last ditch effort, something that you do only if you have no other choice. It is usually much easier to figure out a way to <em>solve</em> the problem. In the case of RavenDB and the busy port, we start out at port 8080, and if it is busy, we find another port that is open that we can use. That means that the initial experience is much easier, since you can immediately make use of the database without dealing with how to change the port it is listening on. </p> <blockquote> <p>Nitpicker corner: this feature kicks in only if you have explicitly stated that you wanted it in the configuration. This is part of the default config for RavenDB, and is meant for the initial process only. It is not recommended for production use.</p></blockquote> <p>Why is it so much better in code than in the documentation? Surely it takes a lot less time to explain how to modify an App.config value than write the code for auto detecting an open port and binding to it… and you need to document the behavior anyway…</p> <p>The answer is that it saves on <em>support</em> and increase <em>success rate</em>. The saves on support are pretty obvious. If it works Out Of The Box, everyone is happy. But what is this Success Rate that I am talking about?</p> <p>Unless you are someone like Oracle, you have a very narrow window of time when a user is willing to try whatever it is that you are providing. And you had better make that window of time a Success Story, rather than “Reading the Known Issues” document.</p>",
+      "Tags": {
+        "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
+        "$values": [
+          "Raven",
+          "Design"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-05T14:41:58.0829312+03:00",
+      "PublishAt": "2011-06-03T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": null,
+      "LastEditedAt": null,
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 11,
+      "CommentsId": "postcomments/12289",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "raven",
+          "design"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Wed, 08 Jun 2011 20:36:04 GMT",
+        "@id": "posts/12289",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-0f00-0000-000000020973",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "What is next for the profilers?",
+      "LegacySlug": null,
+      "Body": "<p>We have been working on the profilers (<a href=\"http://nhprof.com/\">NHibernate Profiler</a>, <a href=\"http://efprof.com/\">Entity Framework Profiler</a>, <a href=\"http://l2sprof.com/\">Linq to SQL Profiler</a>, <a href=\"http://llblgenprof.com/\">LLBLGen Profiler</a> and <a href=\"http://hibernateprofiler.com\">Hibernate Profiler</a>) for close to three years now. And we have been running always as 1.x, so we didn’t have a major release (although we have continual releases, we currently have close to 900 drops of the 1.x version).</p> <p>The question now becomes, what is going to happen in the next version of the profiler?</p> <ul> <li>Production Profiling, the ability to setup your application so that you can connect to your production application and see what is going on <em>right now</em>. </li> <li>Error Analysis, the ability to provide you with additional insight and common solution to recurring problems.</li> <li>Global Query Analysis, the ability to take all of your queries, look at their query plans and show your potential issues.</li></ul> <p>Those are the big ones, we have a few others, and a surprise in store <img style=\"border-bottom-style: none; border-left-style: none; border-top-style: none; border-right-style: none\" class=\"wlEmoticon wlEmoticon-smile\" alt=\"Smile\" src=\"http://ayende.com/blog/Images/Windows-Live-Writer/What-is-next-for-the-profilers_868C/wlEmoticon-smile_2.png\"></p> <p>What would you want to see in the next version of the profiler?</p>",
+      "Tags": {
+        "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
+        "$values": [
+          "NH Prof",
+          "EF Prof",
+          "L2SProf",
+          "UberProf"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-02T09:42:01.6995239+03:00",
+      "PublishAt": "2011-06-02T12:00:00.0000000+03:00",
+      "SkipAutoReschedule": false,
+      "LastEditedByUserId": null,
+      "LastEditedAt": null,
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 24,
+      "CommentsId": "postcomments/11265",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "nh-prof",
+          "ef-prof",
+          "l2sprof",
+          "uberprof"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Last-Modified": "Wed, 08 Jun 2011 11:01:48 GMT",
+        "@id": "posts/11265",
+        "Temp-Index-Score": 0.0,
+        "@etag": "00000000-0000-0f00-0000-000000020929",
+        "Non-Authoritive-Information": false
+      }
+    },
+    {
+      "Title": "Rhino Mocks new location",
+      "LegacySlug": null,
+      "Body": "<p>This is a public service announcement, mostly meant to be caught in Google, to be frank.</p> <p>The new homepage for Rhino Mocks is: <a href=\"http://hibernatingrhinos.com/open-source/rhino-mocks\">http://hibernatingrhinos.com/open-source/rhino-mocks</a></p>",
+      "Tags": {
+        "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
+        "$values": [
+          "Rhino Mocks"
+        ]
+      },
+      "AuthorId": "users/1",
+      "CreatedAt": "2011-06-01T13:04:01.6518293+03:00",
+      "PublishAt": "2011-06-01T10:03:00.0000000+03:00",
+      "SkipAutoReschedule": true,
+      "LastEditedByUserId": null,
+      "LastEditedAt": null,
+      "IsDeleted": false,
+      "AllowComments": true,
+      "ShowPostEvenIfPrivate": "...private...",
+      "CommentsCount": 0,
+      "CommentsId": "postcomments/10241",
+      "TagsAsSlugs": {
+        "$type": "System.String[], mscorlib",
+        "$values": [
+          "rhino-mocks"
+        ]
+      },
+      "@metadata": {
+        "Raven-Entity-Name": "Posts",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.Post, RaccoonBlog.Web",
+        "Temp-Index-Score": 0.0,
+        "Last-Modified": "Sun, 05 Jun 2011 11:53:38 GMT",
+        "Non-Authoritive-Information": false,
+        "@id": "posts/10241",
+        "@etag": "00000000-0000-0f00-0000-000000006421"
+      }
+    }
+  ],
+  "Includes": [
+    {
+      "FullName": "Ayende Rahien",
+      "Email": "...private...",
+      "HashedPassword": "...private...",
+      "Enabled": true,
+      "TwitterNick": "ayende",
+      "RelatedTwitterNick": null,
+      "RelatedTwitterNickDesc": null,
+      "PasswordSalt": "...private...",
+      "@metadata": {
+        "Raven-Entity-Name": "Users",
+        "Raven-Clr-Type": "RaccoonBlog.Web.Models.User, RaccoonBlog.Web",
+        "Last-Modified": "Sat, 14 May 2011 11:16:49 GMT",
+        "Non-Authoritive-Information": false,
+        "@id": "users/1",
+        "@etag": "00000000-0000-0100-0000-000000007236"
+      }
+    }
+  ],
+  "IsStale": false,
+  "IndexTimestamp": "2011-07-05T12:46:51.0350000+03:00",
+  "TotalResults": 4868,
+  "SkippedResults": 0,
+  "IndexName": "Auto/Posts/ByIsDeletedAndLegacySlugAndPublishAtAndPublishAtDayAndPublishAtMonthAndPublishAtYearSortByPublishAt",
+  "IndexEtag": "00000000-0000-2500-0000-0000000084c0"
+}
