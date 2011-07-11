@@ -45,7 +45,7 @@ namespace Glimpse.RavenDb
 			data.Add(new object[] { "Url", "Database" });
 			data.AddRange(stores.Keys.Select(store => new object[] {
 				store.Url,
-				store.DefaultDatabase,
+				store.DefaultDatabase
 			}));
 			return data;
 		}
@@ -62,7 +62,7 @@ namespace Glimpse.RavenDb
 			data.AddRange(sessions.Select(session => new object[] {
 				session.Id,
 				session.Requests.Count,
-				session.At
+				session.At,
 			}));
 			return data;
 		}
@@ -80,7 +80,7 @@ namespace Glimpse.RavenDb
 		        req.At,
 		        req.Method,
 		        req.Url,
-		        req.PostedData,
+		        ParseJsonResult(req.PostedData),
 		        req.HttpResult,
 		        req.Status.ToString(),
 		        ParseJsonResult(req.Result)
@@ -139,10 +139,11 @@ namespace Glimpse.RavenDb
 					arrayItems.Insert(0, new[] { "Values" });
 					return arrayItems;
 				}
+			case JTokenType.String:
+				return ParseJsonResult((string)((RavenJValue)token).Value);
 			case JTokenType.Boolean:
 			case JTokenType.Float:
 			case JTokenType.Integer:
-			case JTokenType.String:
 			case JTokenType.Bytes:
 			case JTokenType.Date:
 				return ((RavenJValue)token).Value;
