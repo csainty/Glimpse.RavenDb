@@ -52,7 +52,7 @@ namespace Glimpse.RavenDb
 
 		private List<object[]> GetSessionList() {
 			List<object[]> data = new List<object[]>();
-			data.Add(new object[] { "Session Id", "Request Count", "At" });
+			data.Add(new object[] { "Session Id", "Request Count", "At", "Duration" });
 
 			var sessions = from id in ContextualSessionList
 						   from store in stores.Keys
@@ -63,13 +63,14 @@ namespace Glimpse.RavenDb
 				session.Id,
 				session.Requests.Count,
 				session.At,
+				session.DurationMilliseconds
 			}));
 			return data;
 		}
 
 		private List<object[]> GetRequestList() {
 			List<object[]> data = new List<object[]>();
-			data.Add(new object[] { "At", "HttpMetod", "Url", "Data", "HttpResult", "Status", "Result" });
+			data.Add(new object[] { "At", "Duration", "HttpMetod", "Url", "Data", "HttpResult", "Status", "Result" });
 			var requests = from id in ContextualSessionList
 						   from store in stores.Keys
 						   let info = store.GetProfilingInformationFor(id)
@@ -78,6 +79,7 @@ namespace Glimpse.RavenDb
 						   select request;
 			data.AddRange(requests.Select(req => new object[] {
 		        req.At,
+				req.DurationMilliseconds,
 		        req.Method,
 		        req.Url,
 		        ParseJsonResult(req.PostedData),
