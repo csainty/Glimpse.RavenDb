@@ -34,5 +34,5 @@ You can also filter senstive data out of your documents by either
 
 RavenDb - http://www.ravendb.net  
 Glimpse - http://www.getglimpse.com  
-Chris Sainty - http://csainty.blogspot.com
+Chris Sainty - http://csainty.blogspot.com | [@csainty](http://www.twitter.com/csainty/)
 
