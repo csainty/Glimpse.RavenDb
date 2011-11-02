@@ -7,6 +7,8 @@ using System.Linq;
 using System.Web;
 using Glimpse.Core.Extensibility;
 using Newtonsoft.Json.Linq;
+using Raven.Client.Connection;
+using Raven.Client.Connection.Profiling;
 using Raven.Client.Document;
 using Raven.Json.Linq;
 
@@ -15,6 +17,8 @@ namespace Glimpse.RavenDb
 	[GlimpsePlugin(ShouldSetupInInit = true)]
 	public class Profiler : IGlimpsePlugin
 	{
+		private const string GlimpseTimerCategory = "RavenDb";
+
 		public string Name { get { return "RavenDb"; } }
 
 		public void SetupInit() {
@@ -162,8 +166,11 @@ namespace Glimpse.RavenDb
 		/// </summary>
 		/// <param name="store">The instance to profile</param>
 		public static void AttachTo(DocumentStore store) {
+			GlimpseTimer.Moment("Document Store Created", GlimpseTimerCategory);
 			store.SessionCreatedInternal += TrackSession;
 			store.AfterDispose += StopTrackingStore;
+			store.JsonRequestFactory.ConfigureRequest += BeginRequest;
+			store.JsonRequestFactory.LogRequest += EndRequest;
 			stores.TryAdd(store, null);
 		}
 
@@ -177,11 +184,22 @@ namespace Glimpse.RavenDb
 
 		private static void StopTrackingStore(object sender, EventArgs e) {
 			object _;
+			GlimpseTimer.Moment("Document Store Disposed", GlimpseTimerCategory);
 			stores.TryRemove(sender as DocumentStore, out _);
 		}
 
 		private static void TrackSession(InMemoryDocumentSessionOperations session) {
+			GlimpseTimer.Moment("Session Created", GlimpseTimerCategory);
 			ContextualSessionList.Add(session.Id);
+		}
+
+		private static void BeginRequest(object sender, WebRequestEventArgs e) {
+			GlimpseTimer.Start("Query - " + e.Request.RequestUri.PathAndQuery, GlimpseTimerCategory);
+			//GlimpseTimer.Moment();
+		}
+
+		private static void EndRequest(object sender, RequestResultArgs e) {
+			GlimpseTimer.Stop("Query - " + e.Url);
 		}
 
 		private static List<Guid> ContextualSessionList {
