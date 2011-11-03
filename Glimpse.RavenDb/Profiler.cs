@@ -2,7 +2,6 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using Glimpse.Core.Extensibility;
@@ -46,32 +45,39 @@ namespace Glimpse.RavenDb
 
 		private List<object[]> GetStoreList() {
 			List<object[]> data = new List<object[]>();
-			data.Add(new object[] { "Url", "Database", "Conn. String Name", "Identity Separator", "Max Requests Per Session" });
+			data.Add(new object[] { "Url", "Database", "Conn. String Name", "Identity Separator", "Max Requests Per Session", "Embedded?" });
 			data.AddRange(stores.Keys.Select(store => new object[] {
 				store.Url,
 				store.DefaultDatabase,
 				store.ConnectionStringName,
 				store.Conventions.IdentityPartsSeparator,
-				store.Conventions.MaxNumberOfRequestsPerSession
+				store.Conventions.MaxNumberOfRequestsPerSession,
+				IsEmbedded(store)
 			}));
 			return data;
 		}
 
 		private List<object[]> GetSessionList() {
 			List<object[]> data = new List<object[]>();
-			data.Add(new object[] { "Session Id", "Request Count", "At", "Duration" });
+			if (stores.Keys.All(d => IsEmbedded(d))) {
+				// All the profiled stores are embedded and do not support profiling
+				data.Add(new object[] { "Message" });
+				data.Add(new object[] { "Profiling is currently not supported for EmbeddableDocumentStore." });
+			} else {
+				data.Add(new object[] { "Session Id", "Request Count", "At", "Duration" });
 
-			var sessions = from id in ContextualSessionList
-						   from store in stores.Keys
-						   let info = store.GetProfilingInformationFor(id)
-						   where info != null
-						   select info;
-			data.AddRange(sessions.Select(session => new object[] {
-				session.Id,
-				session.Requests.Count,
-				session.At,
-				session.Requests.Sum(d => d.DurationMilliseconds)
-			}));
+				var sessions = from id in ContextualSessionList
+							   from store in stores.Keys
+							   let info = store.GetProfilingInformationFor(id)
+							   where info != null
+							   select info;
+				data.AddRange(sessions.Select(session => new object[] {
+					session.Id,
+					session.Requests.Count,
+					session.At,
+					session.Requests.Sum(d => d.DurationMilliseconds)
+				}));
+			}
 			return data;
 		}
 
@@ -214,6 +220,10 @@ namespace Glimpse.RavenDb
 					HttpContext.Current.Items.Add(key, new List<Guid>());
 				return HttpContext.Current.Items[key] as List<Guid>;
 			}
+		}
+
+		private bool IsEmbedded(DocumentStore store) {
+			return store.GetType().Name == "EmbeddableDocumentStore";
 		}
 	}
 }
