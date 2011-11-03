@@ -46,10 +46,13 @@ namespace Glimpse.RavenDb
 
 		private List<object[]> GetStoreList() {
 			List<object[]> data = new List<object[]>();
-			data.Add(new object[] { "Url", "Database" });
+			data.Add(new object[] { "Url", "Database", "Conn. String Name", "Identity Separator", "Max Requests Per Session" });
 			data.AddRange(stores.Keys.Select(store => new object[] {
 				store.Url,
-				store.DefaultDatabase
+				store.DefaultDatabase,
+				store.ConnectionStringName,
+				store.Conventions.IdentityPartsSeparator,
+				store.Conventions.MaxNumberOfRequestsPerSession
 			}));
 			return data;
 		}
@@ -67,7 +70,7 @@ namespace Glimpse.RavenDb
 				session.Id,
 				session.Requests.Count,
 				session.At,
-				session.DurationMilliseconds
+				session.Requests.Sum(d => d.DurationMilliseconds)
 			}));
 			return data;
 		}
