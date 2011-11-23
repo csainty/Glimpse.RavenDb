@@ -3,7 +3,6 @@
 Thumbs.db
 #Ignore files build by Visual Studio
 *.obj
-*.exe
 *.pdb
 *.user
 *.aps
@@ -27,4 +26,4 @@ obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
-packages
+[Pp]ackages*/
