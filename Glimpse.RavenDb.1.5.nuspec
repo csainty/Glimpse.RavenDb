@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <version>1.5</version>
+    <authors>csainty</authors>
+    <owners />
+    <projectUrl>https://github.com/csainty/Glimpse.RavenDb</projectUrl>
+    <dependencies>
+      <dependency id="Glimpse" version="0.87" />
+      <dependency id="RavenDB-Client" version="1.0.701" />
+    </dependencies>
+    <id>Glimpse.RavenDb</id>
+    <title>RavenDb Profiling Plugin for Glimpse</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Adds a RavenDb tab to your Glimpse console that contains profiling information retrieved from RavenDb.
+Server queries are included in the Glimpse timeline.</description>
+    <tags>ravendb glimpse profiling</tags>
+  </metadata>
+  <files>
+    <file src="NuGet\Glimpse.RavenDb.Readme.txt" target="content\Glimpse.RavenDb.Readme.txt" />
+    <file src="Glimpse.RavenDb\bin\Release\Glimpse.RavenDb.dll" target="lib\Glimpse.RavenDb.dll" />
+    <file src="Glimpse.RavenDb\bin\Release\Glimpse.RavenDb.pdb" target="lib\Glimpse.RavenDb.pdb" />
+  </files>
+</package>
