@@ -14,25 +14,31 @@ You can also filter senstive data out of your documents by either
 
 ###Example DocumentStore Creation
 
-`var store = new DocumentStore();`  
-`store.Initialize();`  
-`Application["MyDocStore"]= store;`  
+```
+var store = new DocumentStore();
+store.Initialize();
+Application["MyDocStore"]= store;
+```
 
 ###Explicit
 
-`Glimpse.RavenDb.Profiler.AttachTo(store);`  
-`Glimpse.RavenDb.Profiler.HideFields("PasswordHash", "PasswordSalt");`
+```
+Glimpse.RavenDb.Profiler.AttachTo(store);
+Glimpse.RavenDb.Profiler.HideFields("PasswordHash", "PasswordSalt");
+```
 
 ###Web.Config
 
-`<appSettings>`  
-`	<add key="Glimpse.RavenDb.DocumentStoreApplicationKey" value="MyDocStore" />`  
-`	<add key="Glimpse.RavenDb.HiddenFields" value="PasswordHash,PasswordSalt" />`  
-`</appSettings>`
+```
+<appSettings>
+	<add key="Glimpse.RavenDb.DocumentStoreApplicationKey" value="MyDocStore" />
+	<add key="Glimpse.RavenDb.HiddenFields" value="PasswordHash,PasswordSalt" />
+</appSettings>
+```
 
 ###Learn More
 
 RavenDb - http://www.ravendb.net  
 Glimpse - http://www.getglimpse.com  
-Chris Sainty - http://csainty.blogspot.com | [@csainty](http://www.twitter.com/csainty/)
+Chris Sainty - http://blog.csainty.com | [@csainty](http://www.twitter.com/csainty/)
 
