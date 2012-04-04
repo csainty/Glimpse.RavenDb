@@ -13,7 +13,6 @@ You can also filter senstive data out of your documents by either
 
 
 ###Example DocumentStore Creation
-
 ```
 var store = new DocumentStore();
 store.Initialize();
@@ -21,14 +20,12 @@ Application["MyDocStore"]= store;
 ```
 
 ###Explicit
-
 ```
 Glimpse.RavenDb.Profiler.AttachTo(store);
 Glimpse.RavenDb.Profiler.HideFields("PasswordHash", "PasswordSalt");
 ```
 
 ###Web.Config
-
 ```
 <appSettings>
 	<add key="Glimpse.RavenDb.DocumentStoreApplicationKey" value="MyDocStore" />
