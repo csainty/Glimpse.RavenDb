@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Glimpse.RavenDB by csainty</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Glimpse.RavenDB</h1>
+        <p>RavenDB Profiling plugin for Glimpse</p>
+        <p class="view"><a href="https://github.com/csainty/Glimpse.RavenDb">View the Project on GitHub <small>csainty/Glimpse.RavenDb</small></a></p>
+        <ul>
+          <li><a href="https://github.com/csainty/Glimpse.RavenDb/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/csainty/Glimpse.RavenDb/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/csainty/Glimpse.RavenDb">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>Download</h3>
+
+<p>Grab it from NuGet - <a href="http://nuget.org/packages/Glimpse.RavenDb">http://nuget.org/packages/Glimpse.RavenDb</a></p>
+
+<h3>Install</h3>
+
+<p>There are two ways to hook your RavenDb DocumentStore into the plugin.</p>
+
+<ol>
+<li>Explicitly via Glimpse.RavenDb.Profiler.AttachTo()</li>
+<li>Web.Config via the Glimpse.RavenDb.DocumentStoreApplicationKey AppSetting.</li>
+</ol><p>You can also filter senstive data out of your documents by either</p>
+
+<ol>
+<li>Calling Glimpse.RavenDb.Profiler.HideFields()</li>
+<li>Adding a Glimpse.RavenDb.HiddenFields AppSetting.</li>
+</ol><h3>Example DocumentStore Creation</h3>
+
+<pre><code>var store = new DocumentStore();
+store.Initialize();
+Application["MyDocStore"]= store;
+</code></pre>
+
+<h3>Explicit</h3>
+
+<pre><code>Glimpse.RavenDb.Profiler.AttachTo(store);
+Glimpse.RavenDb.Profiler.HideFields("PasswordHash", "PasswordSalt");
+</code></pre>
+
+<h3>Web.Config</h3>
+
+<pre><code>&lt;appSettings&gt;
+    &lt;add key="Glimpse.RavenDb.DocumentStoreApplicationKey" value="MyDocStore" /&gt;
+    &lt;add key="Glimpse.RavenDb.HiddenFields" value="PasswordHash,PasswordSalt" /&gt;
+&lt;/appSettings&gt;
+</code></pre>
+
+<h3>Learn More</h3>
+
+<p>RavenDb - <a href="http://www.ravendb.net">http://www.ravendb.net</a><br>
+Glimpse - <a href="http://www.getglimpse.com">http://www.getglimpse.com</a><br>
+Chris Sainty - <a href="http://blog.csainty.com">http://blog.csainty.com</a> | <a href="http://www.twitter.com/csainty/">@csainty</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/csainty">csainty</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
