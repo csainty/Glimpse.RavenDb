@@ -7,17 +7,19 @@ namespace Glimpse.RavenDb.Tests
 {
     public class JsonTests
     {
+        private Profiler profiler = new Profiler();
+
         [Fact]
         public void CanHandleNonJson()
         {
-            var result = Profiler.ParseJsonResult("The server returned an Error 404.");
+            var result = profiler.ParseJsonResult("The server returned an Error 404.");
             Assert.Equal("The server returned an Error 404.", result);
         }
 
         [Fact]
         public void CanProcessString()
         {
-            var result = Profiler.ParseJsonResult(@"{""key"":""data""}");
+            var result = profiler.ParseJsonResult(@"{""key"":""data""}");
             Assert.NotNull(result);
             Assert.IsType<List<object[]>>(result);
             var data = result as List<object[]>;
@@ -29,7 +31,7 @@ namespace Glimpse.RavenDb.Tests
         [Fact]
         public void CanProcessInt()
         {
-            var result = Profiler.ParseJsonResult(@"{""key"":12}");
+            var result = profiler.ParseJsonResult(@"{""key"":12}");
             Assert.NotNull(result);
             Assert.IsType<List<object[]>>(result);
             var data = result as List<object[]>;
@@ -41,7 +43,7 @@ namespace Glimpse.RavenDb.Tests
         [Fact]
         public void CanProcessFloat()
         {
-            var result = Profiler.ParseJsonResult(@"{""key"":12.34}");
+            var result = profiler.ParseJsonResult(@"{""key"":12.34}");
             Assert.NotNull(result);
             Assert.IsType<List<object[]>>(result);
             var data = result as List<object[]>;
@@ -53,7 +55,7 @@ namespace Glimpse.RavenDb.Tests
         [Fact]
         public void CanProcessBoolean()
         {
-            var result = Profiler.ParseJsonResult(@"{""key"":true}");
+            var result = profiler.ParseJsonResult(@"{""key"":true}");
             Assert.NotNull(result);
             Assert.IsType<List<object[]>>(result);
             var data = result as List<object[]>;
@@ -65,7 +67,7 @@ namespace Glimpse.RavenDb.Tests
         [Fact]
         public void CanProcessSubObject()
         {
-            var result = Profiler.ParseJsonResult(@"{""key"":{""subkey"":""data""}}");
+            var result = profiler.ParseJsonResult(@"{""key"":{""subkey"":""data""}}");
             Assert.NotNull(result);
             Assert.IsType<List<object[]>>(result);
             var data = result as List<object[]>;
@@ -82,7 +84,7 @@ namespace Glimpse.RavenDb.Tests
         [Fact]
         public void CanProcessValueArray()
         {
-            var result = Profiler.ParseJsonResult(@"{""array"":[true,false,true]}");
+            var result = profiler.ParseJsonResult(@"{""array"":[true,false,true]}");
             Assert.NotNull(result);
             Assert.IsType<List<object[]>>(result);
             var data = result as List<object[]>;
@@ -101,7 +103,7 @@ namespace Glimpse.RavenDb.Tests
         [Fact]
         public void CanProcessObjectArray()
         {
-            var result = Profiler.ParseJsonResult(@"{""array"":[{""key1"":""val1"",""key2"":""val2""},{""key1"":""val3"",""key2"":""val4""},{""key1"":""val5"",""key2"":""val6""}]}");
+            var result = profiler.ParseJsonResult(@"{""array"":[{""key1"":""val1"",""key2"":""val2""},{""key1"":""val3"",""key2"":""val4""},{""key1"":""val5"",""key2"":""val6""}]}");
             Assert.NotNull(result);
             Assert.IsType<List<object[]>>(result);
             var data = result as List<object[]>;
@@ -125,7 +127,7 @@ namespace Glimpse.RavenDb.Tests
         public void WillFilterFields()
         {
             Profiler.HideFields("filterThisField");
-            var result = Profiler.ParseJsonResult(@"{""key"":""data"",""filterThisField"":""data""}");
+            var result = profiler.ParseJsonResult(@"{""key"":""data"",""filterThisField"":""data""}");
             Assert.NotNull(result);
             Assert.IsType<List<object[]>>(result);
             var data = result as List<object[]>;
@@ -142,14 +144,14 @@ namespace Glimpse.RavenDb.Tests
             {
                 json = reader.ReadToEnd();
             }
-            var result = Profiler.ParseJsonResult(json);
+            var result = profiler.ParseJsonResult(json);
             Assert.NotNull(result);
         }
 
         [Fact]
         public void CanProcessInlineJson()
         {
-            var result = Profiler.ParseJsonResult(@"{""key"":""{\""key\"":\""data\""}""}");
+            var result = profiler.ParseJsonResult(@"{""key"":""{\""key\"":\""data\""}""}");
             Assert.NotNull(result);
             Assert.IsType<List<object[]>>(result);
             var data = result as List<object[]>;

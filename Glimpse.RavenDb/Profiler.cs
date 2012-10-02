@@ -13,23 +13,17 @@ using System.Web;
 
 namespace Glimpse.RavenDb
 {
-    [GlimpsePlugin(ShouldSetupInInit = true)]
-    public class Profiler : IGlimpsePlugin
+    public class Profiler : ITab
     {
-        private const string GlimpseTimerCategory = "RavenDb";
+        //private const string GlimpseTimerCategory = "RavenDb";
+        private static List<string> jsonKeysToHide = new List<string>();
+
+        private static ConcurrentDictionary<DocumentStore, object> stores = new ConcurrentDictionary<DocumentStore, object>();
 
         public string Name { get { return "RavenDb"; } }
 
-        public void SetupInit()
+        public Profiler()
         {
-            var key = ConfigurationManager.AppSettings["Glimpse.RavenDb.DocumentStoreApplicationKey"];
-            if (!String.IsNullOrEmpty(key))
-            {
-                var store = HttpContext.Current.Application[key] as DocumentStore;
-                if (store != null)
-                    AttachTo(store);
-            }
-
             var fields = ConfigurationManager.AppSettings["Glimpse.RavenDb.HiddenFields"];
             if (!String.IsNullOrEmpty(fields))
             {
@@ -37,7 +31,7 @@ namespace Glimpse.RavenDb
             }
         }
 
-        public object GetData(HttpContextBase context)
+        public object GetData(ITabContext context)
         {
             var data = new List<object[]>();
             data.Add(new object[] { "Key", "Value" });
@@ -113,7 +107,7 @@ namespace Glimpse.RavenDb
             return data;
         }
 
-        public static object ParseJsonResult(string json)
+        public object ParseJsonResult(string json)
         {
             try
             {
@@ -126,7 +120,7 @@ namespace Glimpse.RavenDb
             }
         }
 
-        private static object Visit(RavenJToken token)
+        private object Visit(RavenJToken token)
         {
             switch (token.Type)
             {
@@ -192,16 +186,13 @@ namespace Glimpse.RavenDb
             }
         }
 
-        private static ConcurrentDictionary<DocumentStore, object> stores = new ConcurrentDictionary<DocumentStore, object>();
-        private static List<string> jsonKeysToHide = new List<string>();
-
         /// <summary>
         /// Attach a DocumentStore instance to the profiler
         /// </summary>
         /// <param name="store">The instance to profile</param>
         public static void AttachTo(DocumentStore store)
         {
-            GlimpseTimer.Moment("Document Store Created", GlimpseTimerCategory);
+            //GlimpseTimer.Moment("Document Store Created", GlimpseTimerCategory);
             store.SessionCreatedInternal += TrackSession;
             store.AfterDispose += StopTrackingStore;
             store.JsonRequestFactory.ConfigureRequest += BeginRequest;
@@ -221,32 +212,32 @@ namespace Glimpse.RavenDb
         private static void StopTrackingStore(object sender, EventArgs e)
         {
             object _;
-            GlimpseTimer.Moment("Document Store Disposed", GlimpseTimerCategory);
+
+            //GlimpseTimer.Moment("Document Store Disposed", GlimpseTimerCategory);
             stores.TryRemove(sender as DocumentStore, out _);
         }
 
         private static void TrackSession(InMemoryDocumentSessionOperations session)
         {
-            GlimpseTimer.Moment("Session Created", GlimpseTimerCategory);
+            //GlimpseTimer.Moment("Session Created", GlimpseTimerCategory);
             ContextualSessionList.Add(session.Id);
         }
 
         private static void BeginRequest(object sender, WebRequestEventArgs e)
         {
-            GlimpseTimer.Start("Query - " + e.Request.RequestUri.PathAndQuery, GlimpseTimerCategory);
-
-            //GlimpseTimer.Moment();
+            //GlimpseTimer.Start("Query - " + e.Request.RequestUri.PathAndQuery, GlimpseTimerCategory);
         }
 
         private static void EndRequest(object sender, RequestResultArgs e)
         {
-            GlimpseTimer.Stop("Query - " + e.Url);
+            //GlimpseTimer.Stop("Query - " + e.Url);
         }
 
         private static List<Guid> ContextualSessionList
         {
             get
             {
+                //TODO: Remove dependency on HttpContext and improve thread safety
                 const string key = "Glimpse.RavenDb.SessionList";
                 if (HttpContext.Current == null)
                     return new List<Guid>();
@@ -259,6 +250,16 @@ namespace Glimpse.RavenDb
         private bool IsEmbedded(DocumentStore store)
         {
             return store.GetType().Name == "EmbeddableDocumentStore";
+        }
+
+        public RuntimeEvent ExecuteOn
+        {
+            get { return RuntimeEvent.EndRequest; }
+        }
+
+        public Type RequestContextType
+        {
+            get { return typeof(HttpContextBase); }
         }
     }
 }
