@@ -59,7 +59,12 @@ namespace Glimpse.RavenDb
         private List<object[]> GetSessionList()
         {
             List<object[]> data = new List<object[]>();
-            if (stores.Keys.All(d => IsEmbedded(d)))
+            if (stores.Count == 0)
+            {
+                data.Add(new object[] { "Message" });
+                data.Add(new object[] { "Profiling has not been enabled for any RavenDb stores." });
+            }
+            else if (stores.Keys.All(d => IsEmbedded(d)))
             {
                 // All the profiled stores are embedded and do not support profiling
                 data.Add(new object[] { "Message" });
