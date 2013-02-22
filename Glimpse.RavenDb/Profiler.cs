@@ -74,14 +74,27 @@ namespace Glimpse.RavenDb
         private static void EndRequest(object sender, RequestResultArgs e)
         {
             //GlimpseTimer.Stop("Query - " + e.Url);
+            Timeline("Query - " + e.Url, new TimerResult { Duration = TimeSpan.FromMilliseconds(e.DurationMilliseconds) });
         }
 
         private static void Trace(string message)
         {
+            Publish(new TraceMessage { Category = "RavenDb", Message = message });
+        }
+
+        private static void Timeline(string message, TimerResult timer)
+        {
+            Publish(new RavenDbTimelineMessage()
+                .AsTimelineMessage(message, RavenDbTimelineMessage.RavenDbTimelineCategory)
+                .AsTimedMessage(timer));
+        }
+
+        private static void Publish<T>(T message)
+        {
             var mb = MessageBroker;
             if (mb != null)
             {
-                mb.Publish(new TraceMessage { Category = "RavenDb", Message = message });
+                mb.Publish(message);
             }
         }
     }
