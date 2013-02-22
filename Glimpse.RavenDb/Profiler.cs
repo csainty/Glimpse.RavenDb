@@ -1,193 +1,32 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Web;
 using Glimpse.Core.Extensibility;
+using Glimpse.Core.Message;
+using Glimpse.RavenDb.Message;
 using Raven.Abstractions.Connection;
 using Raven.Client.Connection.Profiling;
 using Raven.Client.Document;
-using Raven.Imports.Newtonsoft.Json.Linq;
-using Raven.Json.Linq;
 
 namespace Glimpse.RavenDb
 {
-    public class Profiler : ITab
+    public static class Profiler
     {
-        //private const string GlimpseTimerCategory = "RavenDb";
         private static List<string> jsonKeysToHide = new List<string>();
+        private static List<DocumentStore> stores = new List<DocumentStore>();
 
-        private static ConcurrentDictionary<DocumentStore, object> stores = new ConcurrentDictionary<DocumentStore, object>();
+        public static IEnumerable<DocumentStore> Stores { get { return stores; } }
 
-        public string Name { get { return "RavenDb"; } }
+        public static IEnumerable<string> HiddenKeys { get { return jsonKeysToHide; } }
 
-        public Profiler()
+        public static IMessageBroker MessageBroker { get; set; }
+
+        static Profiler()
         {
             var fields = ConfigurationManager.AppSettings["Glimpse.RavenDb.HiddenFields"];
             if (!String.IsNullOrEmpty(fields))
             {
                 HideFields(fields.Split(','));
-            }
-        }
-
-        public object GetData(ITabContext context)
-        {
-            var data = new List<object[]>();
-            data.Add(new object[] { "Key", "Value" });
-            data.Add(new object[] { "Stores", GetStoreList() });
-            data.Add(new object[] { "Sessions", GetSessionList() });
-            data.Add(new object[] { "Requests", GetRequestList() });
-            return data;
-        }
-
-        private List<object[]> GetStoreList()
-        {
-            List<object[]> data = new List<object[]>();
-            data.Add(new object[] { "Url", "Database", "Conn. String Name", "Identity Separator", "Max Requests Per Session", "Embedded?" });
-            data.AddRange(stores.Keys.Select(store => new object[] {
-				store.Url,
-				store.DefaultDatabase,
-				store.ConnectionStringName,
-				store.Conventions.IdentityPartsSeparator,
-				store.Conventions.MaxNumberOfRequestsPerSession,
-				IsEmbedded(store)
-			}));
-            return data;
-        }
-
-        private List<object[]> GetSessionList()
-        {
-            List<object[]> data = new List<object[]>();
-            if (stores.Count == 0)
-            {
-                data.Add(new object[] { "Message" });
-                data.Add(new object[] { "Profiling has not been enabled for any RavenDb stores." });
-            }
-            else if (stores.Keys.All(d => IsEmbedded(d)))
-            {
-                // All the profiled stores are embedded and do not support profiling
-                data.Add(new object[] { "Message" });
-                data.Add(new object[] { "Profiling is currently not supported for EmbeddableDocumentStore." });
-            }
-            else
-            {
-                data.Add(new object[] { "Session Id", "Request Count", "At", "Duration" });
-
-                var sessions = from id in ContextualSessionList
-                               from store in stores.Keys
-                               let info = store.GetProfilingInformationFor(id)
-                               where info != null
-                               select info;
-                data.AddRange(sessions.Select(session => new object[] {
-					session.Id,
-					session.Requests.Count,
-					session.At,
-					session.Requests.Sum(d => d.DurationMilliseconds)
-				}));
-            }
-            return data;
-        }
-
-        private List<object[]> GetRequestList()
-        {
-            List<object[]> data = new List<object[]>();
-            data.Add(new object[] { "At", "Duration", "HttpMetod", "Url", "Data", "HttpResult", "Status", "Result" });
-            var requests = from id in ContextualSessionList
-                           from store in stores.Keys
-                           let info = store.GetProfilingInformationFor(id)
-                           where info != null
-                           from request in info.Requests
-                           select request;
-            data.AddRange(requests.Select(req => new object[] {
-		        req.At,
-				req.DurationMilliseconds,
-		        req.Method,
-		        req.Url,
-		        ParseJsonResult(req.PostedData),
-		        req.HttpResult,
-		        req.Status.ToString(),
-		        ParseJsonResult(req.Result)
-		    }));
-            return data;
-        }
-
-        public object ParseJsonResult(string json)
-        {
-            try
-            {
-                var token = RavenJToken.Parse(json);
-                return Visit(token);
-            }
-            catch
-            {
-                return json;
-            }
-        }
-
-        private object Visit(RavenJToken token)
-        {
-            switch (token.Type)
-            {
-                case JTokenType.Object:
-                    List<object[]> data = new List<object[]>();
-                    data.Add(new object[] { "Key", "Value" });
-                    var obj = (RavenJObject)token;
-                    foreach (var child in obj)
-                    {
-                        if (!jsonKeysToHide.Contains(child.Key))
-                        {
-                            data.Add(new object[] { child.Key, Visit(child.Value) });
-                        }
-                    }
-                    return data;
-                case JTokenType.Array:
-                    var arr = (RavenJArray)token;
-                    if (arr.Length == 0)
-                        return null;
-                    List<object[]> arrayItems = new List<object[]>();
-                    for (int i = 0; i < arr.Length; i++)
-                    {
-                        arrayItems.Add(new object[] { Visit(arr[i]) });
-                    }
-
-                    if (arr[0].Type == JTokenType.Object)
-                    {
-                        // Handle objects in a special way by pivoting them
-                        List<object[]> pivotData = new List<object[]>();
-                        var keys = arrayItems.SelectMany(d => (List<object[]>)d[0]).Cast<object[]>().Where(d => (string)d[0] != "Key" || (string)d[1] != "Value").Select(d => (string)d[0]).Distinct().ToArray();
-                        pivotData.Add(keys);
-                        foreach (var row in arrayItems.Select(d => d[0]).Cast<List<object[]>>())
-                        {
-                            object[] vals = new object[keys.Length];
-                            for (int i = 0; i < keys.Length; i++)
-                            {
-                                var keyVal = row.FirstOrDefault(d => (string)d[0] == keys[i]);
-                                if (keyVal != null)
-                                {
-                                    vals[i] = keyVal[1];
-                                }
-                            }
-                            pivotData.Add(vals);
-                        }
-
-                        return pivotData;
-                    }
-                    else
-                    {
-                        arrayItems.Insert(0, new[] { "Values" });
-                        return arrayItems;
-                    }
-                case JTokenType.String:
-                    return ParseJsonResult((string)((RavenJValue)token).Value);
-                case JTokenType.Boolean:
-                case JTokenType.Float:
-                case JTokenType.Integer:
-                case JTokenType.Bytes:
-                case JTokenType.Date:
-                    return ((RavenJValue)token).Value;
-                default:
-                    return null;
             }
         }
 
@@ -197,12 +36,13 @@ namespace Glimpse.RavenDb
         /// <param name="store">The instance to profile</param>
         public static void AttachTo(DocumentStore store)
         {
-            //GlimpseTimer.Moment("Document Store Created", GlimpseTimerCategory);
+            Trace("Document store created");
+            store.InitializeProfiling();
             store.SessionCreatedInternal += TrackSession;
             store.AfterDispose += StopTrackingStore;
             store.JsonRequestFactory.ConfigureRequest += BeginRequest;
             store.JsonRequestFactory.LogRequest += EndRequest;
-            stores.TryAdd(store, null);
+            stores.Add(store);
         }
 
         /// <summary>
@@ -216,16 +56,14 @@ namespace Glimpse.RavenDb
 
         private static void StopTrackingStore(object sender, EventArgs e)
         {
-            object _;
-
-            //GlimpseTimer.Moment("Document Store Disposed", GlimpseTimerCategory);
-            stores.TryRemove(sender as DocumentStore, out _);
+            Trace("Stopped tracking store");
+            stores.Remove(sender as DocumentStore);
         }
 
         private static void TrackSession(InMemoryDocumentSessionOperations session)
         {
-            //GlimpseTimer.Moment("Session Created", GlimpseTimerCategory);
-            ContextualSessionList.Add(session.Id);
+            MessageBroker.Publish(new RavenDbSessionMessage(session.Id));
+            Trace("Session created");
         }
 
         private static void BeginRequest(object sender, WebRequestEventArgs e)
@@ -238,33 +76,13 @@ namespace Glimpse.RavenDb
             //GlimpseTimer.Stop("Query - " + e.Url);
         }
 
-        private static List<Guid> ContextualSessionList
+        private static void Trace(string message)
         {
-            get
+            var mb = MessageBroker;
+            if (mb != null)
             {
-                //TODO: Remove dependency on HttpContext and improve thread safety
-                const string key = "Glimpse.RavenDb.SessionList";
-                if (HttpContext.Current == null)
-                    return new List<Guid>();
-                if (!HttpContext.Current.Items.Contains(key))
-                    HttpContext.Current.Items.Add(key, new List<Guid>());
-                return HttpContext.Current.Items[key] as List<Guid>;
+                mb.Publish(new TraceMessage { Category = "RavenDb", Message = message });
             }
-        }
-
-        private bool IsEmbedded(DocumentStore store)
-        {
-            return store.GetType().Name == "EmbeddableDocumentStore";
-        }
-
-        public RuntimeEvent ExecuteOn
-        {
-            get { return RuntimeEvent.EndRequest; }
-        }
-
-        public Type RequestContextType
-        {
-            get { return typeof(HttpContextBase); }
         }
     }
 }
