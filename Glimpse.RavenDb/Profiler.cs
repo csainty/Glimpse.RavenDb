@@ -10,6 +10,15 @@ using Raven.Client.Document;
 
 namespace Glimpse.RavenDb
 {
+    public class RavenDbInspector : IInspector
+    {
+        public void Setup(IInspectorContext context)
+        {
+            Profiler.MessageBroker = context.MessageBroker;
+            Profiler.ExecutionTimer = context.TimerStrategy;
+        }
+    }
+
     public static class Profiler
     {
         private static List<string> jsonKeysToHide = new List<string>();
@@ -20,6 +29,8 @@ namespace Glimpse.RavenDb
         public static IEnumerable<string> HiddenKeys { get { return jsonKeysToHide; } }
 
         public static IMessageBroker MessageBroker { get; set; }
+
+        public static Func<IExecutionTimer> ExecutionTimer { get; set; }
 
         static Profiler()
         {
@@ -40,7 +51,6 @@ namespace Glimpse.RavenDb
             store.InitializeProfiling();
             store.SessionCreatedInternal += TrackSession;
             store.AfterDispose += StopTrackingStore;
-            store.JsonRequestFactory.ConfigureRequest += BeginRequest;
             store.JsonRequestFactory.LogRequest += EndRequest;
             stores.Add(store);
         }
@@ -62,19 +72,18 @@ namespace Glimpse.RavenDb
 
         private static void TrackSession(InMemoryDocumentSessionOperations session)
         {
+            Timeline("RavenDb session created", ExecutionTimer().Point());
             MessageBroker.Publish(new RavenDbSessionMessage(session.Id));
-            Trace("Session created");
-        }
-
-        private static void BeginRequest(object sender, WebRequestEventArgs e)
-        {
-            //GlimpseTimer.Start("Query - " + e.Request.RequestUri.PathAndQuery, GlimpseTimerCategory);
         }
 
         private static void EndRequest(object sender, RequestResultArgs e)
         {
-            //GlimpseTimer.Stop("Query - " + e.Url);
-            Timeline("Query - " + e.Url, new TimerResult { Duration = TimeSpan.FromMilliseconds(e.DurationMilliseconds) });
+            Timeline("Query - " + e.Url, new TimerResult
+            {
+                StartTime = e.At.Subtract(TimeSpan.FromMilliseconds(e.DurationMilliseconds)),
+                Offset = e.At.Subtract(TimeSpan.FromMilliseconds(e.DurationMilliseconds)).Subtract(ExecutionTimer().RequestStart.ToUniversalTime()),
+                Duration = TimeSpan.FromMilliseconds(e.DurationMilliseconds),
+            });
         }
 
         private static void Trace(string message)

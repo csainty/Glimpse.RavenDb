@@ -15,7 +15,6 @@ namespace Glimpse.RavenDb
         public void Setup(ITabSetupContext context)
         {
             context.PersistMessages<RavenDbSessionMessage>();
-            Profiler.MessageBroker = context.MessageBroker;
         }
 
         public object GetData(ITabContext context)
