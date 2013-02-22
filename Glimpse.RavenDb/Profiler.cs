@@ -1,15 +1,15 @@
-﻿using Glimpse.Core.Extensibility;
-using Newtonsoft.Json.Linq;
-using Raven.Client.Connection;
-using Raven.Client.Connection.Profiling;
-using Raven.Client.Document;
-using Raven.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
+using Glimpse.Core.Extensibility;
+using Raven.Abstractions.Connection;
+using Raven.Client.Connection.Profiling;
+using Raven.Client.Document;
+using Raven.Imports.Newtonsoft.Json.Linq;
+using Raven.Json.Linq;
 
 namespace Glimpse.RavenDb
 {
