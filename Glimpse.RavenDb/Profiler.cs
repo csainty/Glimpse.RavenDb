@@ -24,13 +24,15 @@ namespace Glimpse.RavenDb
         private static List<string> jsonKeysToHide = new List<string>();
         private static List<DocumentStore> stores = new List<DocumentStore>();
 
+        private static bool Enabled { get { return MessageBroker != null && ExecutionTimerFactory != null && ExecutionTimerFactory() != null; } }
+
         public static IEnumerable<DocumentStore> Stores { get { return stores; } }
 
         public static IEnumerable<string> HiddenKeys { get { return jsonKeysToHide; } }
 
-        public static IMessageBroker MessageBroker { get; set; }
+        internal static IMessageBroker MessageBroker { get; set; }
 
-        public static Func<IExecutionTimer> ExecutionTimerFactory { get; set; }
+        internal static Func<IExecutionTimer> ExecutionTimerFactory { get; set; }
 
         static Profiler()
         {
@@ -66,18 +68,22 @@ namespace Glimpse.RavenDb
 
         private static void StopTrackingStore(object sender, EventArgs e)
         {
-            Trace("Stopped tracking store");
             stores.Remove(sender as DocumentStore);
+
+            if (!Enabled) return;
+            Trace("Stopped tracking store");
         }
 
         private static void TrackSession(InMemoryDocumentSessionOperations session)
         {
+            if (!Enabled) return;
             Timeline("RavenDb session created", ExecutionTimerFactory().Point());
             MessageBroker.Publish(new RavenDbSessionMessage(session.Id));
         }
 
         private static void EndRequest(object sender, RequestResultArgs e)
         {
+            if (!Enabled) return;
             Timeline("Query - " + e.Url, new TimerResult
             {
                 StartTime = e.At.Subtract(TimeSpan.FromMilliseconds(e.DurationMilliseconds)),
@@ -88,11 +94,13 @@ namespace Glimpse.RavenDb
 
         private static void Trace(string message)
         {
+            if (!Enabled) return;
             Publish(new TraceMessage { Category = "RavenDb", Message = message });
         }
 
         private static void Timeline(string message, TimerResult timer)
         {
+            if (!Enabled) return;
             Publish(new RavenDbTimelineMessage()
                 .AsTimelineMessage(message, RavenDbTimelineMessage.RavenDbTimelineCategory)
                 .AsTimedMessage(timer));
