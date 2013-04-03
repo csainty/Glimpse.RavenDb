@@ -15,7 +15,7 @@ namespace Glimpse.RavenDb
         public void Setup(IInspectorContext context)
         {
             Profiler.MessageBroker = context.MessageBroker;
-            Profiler.ExecutionTimer = context.TimerStrategy;
+            Profiler.ExecutionTimerFactory = context.TimerStrategy;
         }
     }
 
@@ -30,7 +30,7 @@ namespace Glimpse.RavenDb
 
         public static IMessageBroker MessageBroker { get; set; }
 
-        public static Func<IExecutionTimer> ExecutionTimer { get; set; }
+        public static Func<IExecutionTimer> ExecutionTimerFactory { get; set; }
 
         static Profiler()
         {
@@ -72,7 +72,7 @@ namespace Glimpse.RavenDb
 
         private static void TrackSession(InMemoryDocumentSessionOperations session)
         {
-            Timeline("RavenDb session created", ExecutionTimer().Point());
+            Timeline("RavenDb session created", ExecutionTimerFactory().Point());
             MessageBroker.Publish(new RavenDbSessionMessage(session.Id));
         }
 
@@ -81,7 +81,7 @@ namespace Glimpse.RavenDb
             Timeline("Query - " + e.Url, new TimerResult
             {
                 StartTime = e.At.Subtract(TimeSpan.FromMilliseconds(e.DurationMilliseconds)),
-                Offset = e.At.Subtract(TimeSpan.FromMilliseconds(e.DurationMilliseconds)).Subtract(ExecutionTimer().RequestStart.ToUniversalTime()),
+                Offset = e.At.Subtract(TimeSpan.FromMilliseconds(e.DurationMilliseconds)).Subtract(ExecutionTimerFactory().RequestStart.ToUniversalTime()),
                 Duration = TimeSpan.FromMilliseconds(e.DurationMilliseconds),
             });
         }
