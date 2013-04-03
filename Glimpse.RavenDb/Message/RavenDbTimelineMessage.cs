@@ -5,9 +5,9 @@ namespace Glimpse.RavenDb.Message
 {
     public class RavenDbTimelineMessage : MessageBase, ITimelineMessage
     {
-        internal static TimelineCategory RavenDbTimelineCategory = new TimelineCategory("RavenDb", "#ff000", "#00ff00");
+        internal static TimelineCategoryItem RavenDbTimelineCategory = new TimelineCategoryItem("RavenDb", "#ff000", "#00ff00");
 
-        public TimelineCategory EventCategory { get; set; }
+        public TimelineCategoryItem EventCategory { get; set; }
 
         public string EventName { get; set; }
 
