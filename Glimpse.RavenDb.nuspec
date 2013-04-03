@@ -6,8 +6,8 @@
     <owners />
     <projectUrl>http://csainty.github.com/Glimpse.RavenDb</projectUrl>
     <dependencies>
-      <dependency id="Glimpse" version="1.0.0" />
-      <dependency id="RavenDB.Client" version="2.0.2261" />
+      <dependency id="Glimpse" version="1.2.0" />
+      <dependency id="RavenDB.Client" version="2.0.2330" />
     </dependencies>
     <id>Glimpse.RavenDb</id>
     <title>RavenDb Profiling Plugin for Glimpse</title>
