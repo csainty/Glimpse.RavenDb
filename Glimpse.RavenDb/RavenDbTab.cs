@@ -102,6 +102,9 @@ namespace Glimpse.RavenDb
 
         public object ParseJsonResult(string json)
         {
+            if (null == json) return null;
+            if (json == "") return "";
+
             try
             {
                 var token = RavenJToken.Parse(json);
@@ -167,7 +170,6 @@ namespace Glimpse.RavenDb
                         return arrayItems;
                     }
                 case JTokenType.String:
-                    return ParseJsonResult((string)((RavenJValue)token).Value);
                 case JTokenType.Boolean:
                 case JTokenType.Float:
                 case JTokenType.Integer:
