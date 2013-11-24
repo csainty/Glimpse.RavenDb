@@ -147,22 +147,5 @@ namespace Glimpse.RavenDb.Tests
             var result = tab.ParseJsonResult(json);
             Assert.NotNull(result);
         }
-
-        [Fact]
-        public void CanProcessInlineJson()
-        {
-            var result = tab.ParseJsonResult(@"{""key"":""{\""key\"":\""data\""}""}");
-            Assert.NotNull(result);
-            Assert.IsType<List<object[]>>(result);
-            var data = result as List<object[]>;
-            Assert.Equal(2, data.Count);
-            Assert.Equal("key", data[1][0]);
-
-            var data2 = data[1][1] as List<object[]>;
-            Assert.NotNull(data2);
-            Assert.Equal(2, data2.Count);
-            Assert.Equal("key", data2[1][0]);
-            Assert.Equal("data", data2[1][1]);
-        }
     }
 }
