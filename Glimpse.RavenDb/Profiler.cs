@@ -4,9 +4,10 @@ using System.Configuration;
 using Glimpse.Core.Extensibility;
 using Glimpse.Core.Message;
 using Glimpse.RavenDb.Message;
-using Raven.Abstractions.Connection;
+using Raven.Client;
 using Raven.Client.Connection.Profiling;
 using Raven.Client.Document;
+using Raven.Client.Listeners;
 
 namespace Glimpse.RavenDb
 {
@@ -24,9 +25,9 @@ namespace Glimpse.RavenDb
         private static List<string> jsonKeysToHide = new List<string>();
         private static List<DocumentStore> stores = new List<DocumentStore>();
 
-        private static bool Enabled { get { return MessageBroker != null && ExecutionTimerFactory != null && ExecutionTimerFactory() != null; } }
-
         public static IEnumerable<DocumentStore> Stores { get { return stores; } }
+
+        private static bool Enabled { get { return MessageBroker != null && ExecutionTimerFactory != null; } }
 
         public static IEnumerable<string> HiddenKeys { get { return jsonKeysToHide; } }
 
@@ -49,7 +50,7 @@ namespace Glimpse.RavenDb
         /// <param name="store">The instance to profile</param>
         public static void AttachTo(DocumentStore store)
         {
-            Trace("Document store created");
+            Trace("Document store attached");
             store.InitializeProfiling();
             store.SessionCreatedInternal += TrackSession;
             store.AfterDispose += StopTrackingStore;
@@ -68,51 +69,68 @@ namespace Glimpse.RavenDb
 
         private static void StopTrackingStore(object sender, EventArgs e)
         {
-            stores.Remove(sender as DocumentStore);
+            var store = sender as DocumentStore;
+            if (store == null) return;
 
-            if (!Enabled) return;
-            Trace("Stopped tracking store");
+            stores.Remove(sender as DocumentStore);
+            store.SessionCreatedInternal -= TrackSession;
+            store.AfterDispose -= StopTrackingStore;
+            if (store.HasJsonRequestFactory)
+            {
+                store.JsonRequestFactory.LogRequest -= EndRequest;
+            }
         }
 
         private static void TrackSession(InMemoryDocumentSessionOperations session)
         {
-            if (!Enabled) return;
-            Timeline("RavenDb session created", ExecutionTimerFactory().Point());
-            MessageBroker.Publish(new RavenDbSessionMessage(session.Id));
+            PointOnTimeline("RavenDb session created");
+            Publish(new RavenDbSessionMessage(session.Id));
         }
 
         private static void EndRequest(object sender, RequestResultArgs e)
         {
-            if (!Enabled) return;
-            Timeline("Query - " + e.Url, new TimerResult
-            {
-                StartTime = e.At.Subtract(TimeSpan.FromMilliseconds(e.DurationMilliseconds)),
-                Offset = e.At.Subtract(TimeSpan.FromMilliseconds(e.DurationMilliseconds)).Subtract(ExecutionTimerFactory().RequestStart.ToUniversalTime()),
-                Duration = TimeSpan.FromMilliseconds(e.DurationMilliseconds),
-            });
+            DurationOnTimeline("Query - " + e.Url, e.At.Subtract(TimeSpan.FromMilliseconds(e.DurationMilliseconds)), TimeSpan.FromMilliseconds(e.DurationMilliseconds));
         }
 
         private static void Trace(string message)
         {
-            if (!Enabled) return;
             Publish(new TraceMessage { Category = "RavenDb", Message = message });
         }
 
-        private static void Timeline(string message, TimerResult timer)
+        private static void PointOnTimeline(string message)
         {
             if (!Enabled) return;
+            var timer = ExecutionTimerFactory();
+            if (timer == null) return;
+
+            Timeline(message, timer.Point());
+        }
+
+        private static void DurationOnTimeline(string message, DateTime startTime, TimeSpan duration)
+        {
+            if (!Enabled) return;
+            var timer = ExecutionTimerFactory();
+            if (timer == null) return;
+
+            Timeline(message, new TimerResult
+            {
+                StartTime = startTime,
+                Offset = startTime.Subtract(timer.RequestStart.ToUniversalTime()),
+                Duration = duration
+            });
+        }
+
+        private static void Timeline(string message, TimerResult timerResult)
+        {
             Publish(new RavenDbTimelineMessage()
                 .AsTimelineMessage(message, RavenDbTimelineMessage.RavenDbTimelineCategory)
-                .AsTimedMessage(timer));
+                .AsTimedMessage(timerResult));
         }
 
         private static void Publish<T>(T message)
         {
-            var mb = MessageBroker;
-            if (mb != null)
-            {
-                mb.Publish(message);
-            }
+            if (MessageBroker == null) return;
+            MessageBroker.Publish(message);
         }
     }
 }
