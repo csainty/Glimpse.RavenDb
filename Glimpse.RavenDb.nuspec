@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <version>2.1</version>
+    <version>2.2</version>
     <authors>csainty</authors>
     <owners />
     <projectUrl>http://csainty.github.com/Glimpse.RavenDb</projectUrl>
     <dependencies>
-      <dependency id="Glimpse" version="1.8.0" />
-      <dependency id="RavenDB.Client" version="2.5.2750" />
+      <dependency id="Glimpse" version="1.8.4" />
+      <dependency id="RavenDB.Client" version="2.5.2851" />
     </dependencies>
     <id>Glimpse.RavenDb</id>
     <title>RavenDb Profiling Plugin for Glimpse</title>
