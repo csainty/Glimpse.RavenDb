@@ -1,5 +1,8 @@
 Glimpse.RavenDb is a RavenDb profiling plugin for Glimpse.
 
+###Status
+As I don't currently use RavenDB in production, this plug-in is largely abandoned. I'll make occasional updates when it is interesting to me, but I encourage you to fork it if it is critical for your team.
+
 ###Install
 There are two ways to hook your RavenDb DocumentStore into the plugin.
 

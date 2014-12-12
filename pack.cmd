@@ -1,2 +1,2 @@
-.nuget\nuget.exe pack Glimpse.RavenDb.nuspec
+nuget pack Glimpse.RavenDb.nuspec
 pause
