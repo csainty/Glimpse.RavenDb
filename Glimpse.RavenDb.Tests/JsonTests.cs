@@ -49,7 +49,7 @@ namespace Glimpse.RavenDb.Tests
             var data = result as List<object[]>;
             Assert.Equal(2, data.Count);
             Assert.Equal("key", data[1][0]);
-            Assert.Equal(12.34, data[1][1]);
+            Assert.Equal(12.34m, data[1][1]);
         }
 
         [Fact]
