@@ -16,7 +16,18 @@ namespace Glimpse.RavenDb
         public void Setup(IInspectorContext context)
         {
             Profiler.MessageBroker = context.MessageBroker;
-            Profiler.ExecutionTimerFactory = context.TimerStrategy;
+            Profiler.ExecutionTimerFactory =  () =>
+            {
+                try
+                {
+                    return context.TimerStrategy();
+                }
+                catch
+                {
+                    // Avoid exception being thrown from threads without access to request store
+                    return null;
+                }
+            };
         }
     }
 
